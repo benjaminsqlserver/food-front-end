@@ -1,8 +1,18 @@
 # DEV.to submission draft
 
-Copy the body below into the DEV editor. Tags: `devchallenge`, `frontendchallenge`,
-`webdev`, `javascript`. The Pen is already published and linked below, so there is
-nothing left to fill in.
+Everything the DEV editor asks for is collected here. The post body is
+everything below the horizontal rule.
+
+**Title** (paste into the title field):
+
+> Building an accessible Nigerian restaurant landing page with vanilla JavaScript and hand-drawn SVG
+
+**Tags:** `devchallenge`, `frontendchallenge`, `webdev`, `javascript`
+
+**Cover image:** `cover/cover.png` (1000x420)
+
+The Pen is already published and linked in the body, so there is nothing left to
+fill in.
 
 ---
 
