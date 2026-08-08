@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en-NG">
+<head>
+<meta charset="utf-8">
+<title>Iya Bashirat Restaurant — cover</title>
+<style>
+  /* The page IS the image: exactly 1000x420, no margin, no scrollbars. */
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1000px; height: 420px; overflow: hidden; }
+
+  :root {
+    --clay-700: #7a2e18;
+    --clay-600: #a8391f;
+    --ember: #e4572e;
+    --gold: #d8912b;
+    --gold-300: #f2c46b;
+    --leaf: #2f7a4f;
+    --cream: #fff9f1;
+    --sand: #f2e2cd;
+    --ink: #241a13;
+    --ink-soft: #6a5341;
+    --font-display: "Iowan Old Style", "Palatino Linotype", Palatino,
+      "Book Antiqua", Georgia, ui-serif, serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  body {
+    position: relative;
+    display: grid;
+    grid-template-columns: 545px 455px;
+    align-items: center;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(216,145,43,.16) 0, transparent 42%),
+      radial-gradient(circle at 92% 8%,  rgba(168,57,31,.14) 0, transparent 38%),
+      var(--cream);
+    font-family: var(--font-body);
+    color: var(--ink);
+  }
+
+  /* Aso-oke stripe, the same motif that tops the hero. */
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 9px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--clay-600) 0 34px,
+      var(--gold) 34px 56px,
+      var(--leaf) 56px 68px,
+      transparent 68px 100px
+    );
+  }
+
+  .copy { padding: 0 0 0 56px; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--clay-600);
+    margin-bottom: 18px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 30px; height: 2px;
+    background: currentColor;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: 62px;
+    line-height: 1.02;
+    letter-spacing: -.02em;
+    font-weight: 700;
+  }
+  h1 .sub {
+    display: block;
+    font-size: 27px;
+    letter-spacing: .30em;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--clay-600);
+    margin-top: 12px;
+  }
+
+  .tagline {
+    margin-top: 20px;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.35;
+    color: var(--ink-soft);
+    max-width: 26ch;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 26px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .pin { width: 17px; height: 17px; fill: none; stroke: var(--clay-600); stroke-width: 2; }
+
+  /* --- the plate cluster --- */
+  .plate {
+    position: relative;
+    width: 455px;
+    height: 420px;
+  }
+  /* A soft warm pool of light rather than a hard donut — a conic ring with a
+     cream centre reads as two unrelated circles at thumbnail size. */
+  .glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 410px; height: 410px;
+    margin: -205px 0 0 -205px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+      rgba(216,145,43,.30) 0%,
+      rgba(216,145,43,.12) 46%,
+      rgba(168,57,31,.05) 66%,
+      transparent 72%);
+  }
+  .ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 312px; height: 312px;
+    margin: -156px 0 0 -156px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(168,57,31,.30);
+  }
+
+  .dish { position: absolute; filter: drop-shadow(0 14px 22px rgba(59,31,20,.24)); }
+  /* Kept clear of all four edges and above the ribbon at y=384. */
+  .d-main { width: 236px; height: 236px; top: 88px;  left: 110px; }
+  .d-a    { width: 122px; height: 122px; top: 22px;  left: 290px; }
+  .d-b    { width: 112px; height: 112px; top: 248px; left: 24px;  }
+  .d-c    { width: 98px;  height: 98px;  top: 262px; left: 322px; }
+
+  /* Small ribbon, bottom-left, echoing the site's marquee. */
+  /* Full bleed, or it looks like a truncated block rather than a ribbon. */
+  .ribbon {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 56px;
+    background: var(--clay-700);
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: .04em;
+  }
+  .ribbon b { color: var(--gold-300); font-weight: 400; }
+  .ribbon .right { margin-left: auto; font-family: var(--font-body); font-size: 13px;
+                   font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+                   color: var(--gold-300); }
+</style>
+</head>
+<body>
+
+  <div class="copy">
+    <p class="eyebrow" lang="yo">Ẹ káàbọ̀</p>
+    <h1>Iya Bashirat<span class="sub">Restaurant</span></h1>
+    <p class="tagline">Nigerian home cooking from a Lagos kitchen that never closed.</p>
+    <p class="meta">
+      <svg class="pin" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 21s-7.5-5.2-7.5-10.5a7.5 7.5 0 0 1 15 0C19.5 15.8 12 21 12 21z"/>
+        <circle cx="12" cy="10.5" r="2.6"/>
+      </svg>
+      56 Ajayi Crowther Street · Victoria Island, Lagos
+    </p>
+  </div>
+
+  <div class="plate">
+    <div class="glow"></div>
+    <div class="ring"></div>
+    <svg class="dish d-main" viewBox="0 0 120 120"><use href="#dish-jollof"></use></svg>
+    <svg class="dish d-a"    viewBox="0 0 120 120"><use href="#dish-suya"></use></svg>
+    <svg class="dish d-b"    viewBox="0 0 120 120"><use href="#dish-chapman"></use></svg>
+    <svg class="dish d-c"    viewBox="0 0 120 120"><use href="#dish-puffpuff"></use></svg>
+  </div>
+
+  <p class="ribbon">
+    <span>Firewood jollof <b>◆</b> Abula <b>◆</b> Suya off the coals <b>◆</b> Cold Chapman</span>
+    <span class="right">Victoria Island · Lagos</span>
+  </p>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="plate-base" viewBox="0 0 120 120">
+      <ellipse cx="60" cy="104" rx="40" ry="6" fill="#3b1f14" opacity=".14"/>
+      <circle cx="60" cy="66" r="45" fill="#eddcc4"/>
+      <circle cx="60" cy="66" r="37" fill="#fffaf2"/>
+    </symbol>
+    <symbol id="bowl-base" viewBox="0 0 120 120">
+      <ellipse cx="60" cy="106" rx="38" ry="6" fill="#3b1f14" opacity=".14"/>
+      <path d="M16 58h88c0 26-19 44-44 44s-44-18-44-44z" fill="#e8d5ba"/>
+      <ellipse cx="60" cy="58" rx="44" ry="13" fill="#fffaf2"/>
+    </symbol>
+    <symbol id="glass-base" viewBox="0 0 120 120">
+      <ellipse cx="60" cy="110" rx="26" ry="5" fill="#3b1f14" opacity=".14"/>
+      <path d="M40 20h40l-5 84a8 8 0 0 1-8 7H53a8 8 0 0 1-8-7z" fill="#f4f8fa" opacity=".85"/>
+    </symbol>
+  </defs>
+
+  <!-- Rice & grains -->
+  <symbol id="dish-jollof" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M28 72c0-16 14-28 32-28s32 12 32 28c0 9-14 15-32 15S28 81 28 72z" fill="#cf4a1c"/>
+    <path d="M32 68c3-12 14-20 28-20s25 8 28 20c-9-6-47-6-56 0z" fill="#e86a2b"/>
+    <circle cx="45" cy="70" r="2.6" fill="#f7c46b"/>
+    <circle cx="56" cy="76" r="2.2" fill="#2f7a4f"/>
+    <circle cx="70" cy="69" r="2.4" fill="#f7c46b"/>
+    <circle cx="64" cy="61" r="2" fill="#8f2412"/>
+    <circle cx="51" cy="60" r="2" fill="#2f7a4f"/>
+    <circle cx="78" cy="76" r="2.2" fill="#8f2412"/>
+    <path d="M74 84c6-8 15-8 20-1-4 8-14 9-20 1z" fill="#f0a33c"/>
+    <ellipse cx="40" cy="86" rx="11" ry="7.5" fill="#fffdf8"/>
+    <circle cx="40" cy="86" r="4.2" fill="#f2b632"/>
+  </symbol>
+
+  <symbol id="dish-ofada" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M60 30a36 36 0 0 0 0 72z" fill="#f6ead2"/>
+    <path d="M60 30a36 36 0 0 1 0 72z" fill="#5c7f2c"/>
+    <g fill="#e0cfaa">
+      <ellipse cx="44" cy="52" rx="5" ry="2.4" transform="rotate(-20 44 52)"/>
+      <ellipse cx="36" cy="68" rx="5" ry="2.4" transform="rotate(15 36 68)"/>
+      <ellipse cx="46" cy="82" rx="5" ry="2.4" transform="rotate(-8 46 82)"/>
+      <ellipse cx="52" cy="64" rx="5" ry="2.4" transform="rotate(30 52 64)"/>
+    </g>
+    <g fill="#3f5c1c">
+      <circle cx="74" cy="52" r="4.5"/>
+      <circle cx="82" cy="70" r="5"/>
+      <circle cx="70" cy="82" r="4"/>
+    </g>
+    <circle cx="78" cy="60" r="3" fill="#c9a227"/>
+    <path d="M64 44c8-4 16-2 20 4" stroke="#8fae5a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M92 26c10 2 14 10 10 18-6-4-12-2-16-8 2-4 4-8 6-10z" fill="#3c6b2a"/>
+  </symbol>
+
+  <symbol id="dish-coconut-rice" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M28 72c0-16 14-28 32-28s32 12 32 28c0 9-14 15-32 15S28 81 28 72z" fill="#f3e6c8"/>
+    <path d="M32 68c3-12 14-20 28-20s25 8 28 20c-9-6-47-6-56 0z" fill="#fbf3de"/>
+    <g fill="#e06a2a">
+      <rect x="42" y="62" width="12" height="3.4" rx="1.7" transform="rotate(-18 42 62)"/>
+      <rect x="64" y="72" width="12" height="3.4" rx="1.7" transform="rotate(12 64 72)"/>
+    </g>
+    <g fill="#2f7a4f">
+      <rect x="54" y="58" width="11" height="3.4" rx="1.7" transform="rotate(28 54 58)"/>
+      <rect x="46" y="76" width="11" height="3.4" rx="1.7" transform="rotate(-8 46 76)"/>
+      <circle cx="74" cy="62" r="2.6"/>
+    </g>
+    <circle cx="60" cy="70" r="2.4" fill="#e0b23c"/>
+    <path d="M84 40a12 12 0 1 1 0 20 12 12 0 0 1 0-20z" fill="#f6efe2"/>
+    <path d="M84 44a8 8 0 1 1 0 12 8 8 0 0 1 0-12z" fill="#fff"/>
+    <path d="M84 40a12 12 0 0 0-9 4l3 3a8 8 0 0 1 6-3z" fill="#8a6a4b"/>
+  </symbol>
+
+  <!-- Swallow & soup -->
+  <symbol id="dish-egusi" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#b8901f"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#d3ae32"/>
+    <g fill="#2f7a4f">
+      <ellipse cx="44" cy="56" rx="8" ry="4" transform="rotate(-18 44 56)"/>
+      <ellipse cx="72" cy="60" rx="9" ry="4.5" transform="rotate(14 72 60)"/>
+      <ellipse cx="58" cy="66" rx="7" ry="3.5"/>
+    </g>
+    <circle cx="52" cy="60" r="3" fill="#f2e3b0"/>
+    <circle cx="66" cy="54" r="2.6" fill="#f2e3b0"/>
+    <circle cx="78" cy="52" r="2.4" fill="#f2e3b0"/>
+    <path d="M62 52c6-3 12-1 14 4-6 3-12 1-14-4z" fill="#7a4a30"/>
+    <ellipse cx="88" cy="74" rx="20" ry="18" fill="#fffdf6"/>
+    <ellipse cx="88" cy="70" rx="17" ry="14" fill="#fff"/>
+    <path d="M78 66c6-4 14-3 18 2" stroke="#e8ddc8" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="dish-abula" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#6a4a34"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#7d5a40"/>
+    <path d="M22 56a38 11 0 0 1 38-9v11z" fill="#4c8a3a"/>
+    <path d="M60 47a38 11 0 0 1 36 8l-36 3z" fill="#d9a637"/>
+    <ellipse cx="60" cy="72" rx="22" ry="17" fill="#4a3324"/>
+    <ellipse cx="60" cy="69" rx="19" ry="14" fill="#5c3f2c"/>
+    <path d="M48 64c8-4 18-3 24 3" stroke="#775441" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <circle cx="34" cy="60" r="3" fill="#6fbd8f"/>
+    <circle cx="86" cy="62" r="3" fill="#f2c46b"/>
+  </symbol>
+
+  <symbol id="dish-ogbono" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#2f4a22"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#3d6129"/>
+    <ellipse cx="46" cy="58" rx="10" ry="5" fill="#4f7a33"/>
+    <ellipse cx="74" cy="61" rx="9" ry="4.5" fill="#4f7a33"/>
+    <path d="M60 52c5-2 9 0 10 4" stroke="#8faa5f" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M84 50c4 10 2 20-4 26" stroke="#6d8f3e" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="54" cy="64" r="3.4" fill="#8a5a34"/>
+    <circle cx="68" cy="54" r="3" fill="#8a5a34"/>
+    <ellipse cx="26" cy="76" rx="18" ry="16" fill="#fdf6e6"/>
+    <ellipse cx="26" cy="73" rx="15" ry="12" fill="#fffdf6"/>
+  </symbol>
+
+  <symbol id="dish-afang" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#1f4020"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#2c5a2a"/>
+    <g fill="#3f7a38">
+      <ellipse cx="42" cy="56" rx="9" ry="4" transform="rotate(-20 42 56)"/>
+      <ellipse cx="62" cy="61" rx="10" ry="4.5" transform="rotate(10 62 61)"/>
+      <ellipse cx="78" cy="55" rx="8" ry="3.8" transform="rotate(-12 78 55)"/>
+      <ellipse cx="52" cy="66" rx="8" ry="3.6" transform="rotate(24 52 66)"/>
+    </g>
+    <circle cx="70" cy="52" r="3" fill="#c98a3a"/>
+    <circle cx="48" cy="50" r="2.6" fill="#c98a3a"/>
+    <path d="M58 48c6-2 12 0 14 5" stroke="#7fae5c" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="90" cy="74" rx="18" ry="16" fill="#fdf3e0"/>
+    <ellipse cx="90" cy="71" rx="15" ry="12" fill="#fffaf0"/>
+  </symbol>
+
+  <!-- Grills & peppered -->
+  <symbol id="dish-suya" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <g stroke="#c8a97a" stroke-width="3" stroke-linecap="round">
+      <path d="M26 54h68M26 70h68M26 86h68"/>
+    </g>
+    <g fill="#8a3b18">
+      <rect x="34" y="46" width="15" height="16" rx="4"/>
+      <rect x="53" y="46" width="15" height="16" rx="4"/>
+      <rect x="72" y="46" width="15" height="16" rx="4"/>
+      <rect x="34" y="62" width="15" height="16" rx="4"/>
+      <rect x="53" y="62" width="15" height="16" rx="4"/>
+      <rect x="72" y="62" width="15" height="16" rx="4"/>
+      <rect x="40" y="78" width="15" height="16" rx="4"/>
+      <rect x="60" y="78" width="15" height="16" rx="4"/>
+    </g>
+    <g fill="#b8501f" opacity=".9">
+      <rect x="36" y="48" width="11" height="5" rx="2.5"/>
+      <rect x="55" y="48" width="11" height="5" rx="2.5"/>
+      <rect x="74" y="48" width="11" height="5" rx="2.5"/>
+      <rect x="36" y="64" width="11" height="5" rx="2.5"/>
+      <rect x="55" y="64" width="11" height="5" rx="2.5"/>
+      <rect x="74" y="64" width="11" height="5" rx="2.5"/>
+      <rect x="42" y="80" width="11" height="5" rx="2.5"/>
+      <rect x="62" y="80" width="11" height="5" rx="2.5"/>
+    </g>
+    <g fill="#d8912b">
+      <circle cx="42" cy="57" r="1.6"/><circle cx="62" cy="55" r="1.6"/>
+      <circle cx="80" cy="58" r="1.6"/><circle cx="46" cy="72" r="1.6"/>
+      <circle cx="66" cy="74" r="1.6"/><circle cx="50" cy="88" r="1.6"/>
+    </g>
+    <path d="M88 84c6-2 10 2 10 8-6 2-10-2-10-8z" fill="#f0e3c8"/>
+  </symbol>
+
+  <symbol id="dish-asun" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#8c3213"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#a83f18"/>
+    <g fill="#5c3218">
+      <rect x="36" y="50" width="16" height="14" rx="4" transform="rotate(-10 36 50)"/>
+      <rect x="58" y="52" width="16" height="14" rx="4" transform="rotate(8 58 52)"/>
+      <rect x="46" y="66" width="16" height="14" rx="4" transform="rotate(-4 46 66)"/>
+      <rect x="68" y="64" width="15" height="13" rx="4" transform="rotate(16 68 64)"/>
+    </g>
+    <g fill="#3f2110" opacity=".7">
+      <rect x="39" y="53" width="11" height="3" rx="1.5" transform="rotate(-10 39 53)"/>
+      <rect x="61" y="55" width="11" height="3" rx="1.5" transform="rotate(8 61 55)"/>
+      <rect x="49" y="69" width="11" height="3" rx="1.5" transform="rotate(-4 49 69)"/>
+    </g>
+    <g fill="#e4572e">
+      <ellipse cx="34" cy="62" rx="6" ry="3" transform="rotate(-25 34 62)"/>
+      <ellipse cx="84" cy="58" rx="6" ry="3" transform="rotate(20 84 58)"/>
+      <ellipse cx="60" cy="78" rx="6" ry="3"/>
+    </g>
+    <circle cx="72" cy="52" r="3" fill="#f2c46b"/>
+    <circle cx="44" cy="76" r="2.6" fill="#f2c46b"/>
+  </symbol>
+
+  <symbol id="dish-snail" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M28 70c0-14 14-24 32-24s32 10 32 24c0 8-14 14-32 14s-32-6-32-14z" fill="#a33418"/>
+    <g fill="#5a3a22">
+      <path d="M44 62a12 12 0 1 1 0 .1z"/>
+      <path d="M76 66a11 11 0 1 1 0 .1z"/>
+      <path d="M60 78a9 9 0 1 1 0 .1z"/>
+    </g>
+    <g fill="none" stroke="#c8a066" stroke-width="2.2" stroke-linecap="round">
+      <path d="M44 62c0-4 4-6 7-4s2 6-2 7-8-1-8-5 5-8 10-6"/>
+      <path d="M76 66c0-3.5 3.5-5.4 6.2-3.6s1.8 5.4-1.8 6.3-7-.9-7-4.5 4.4-7.2 9-5.4"/>
+      <path d="M60 78c0-3 3-4.5 5.2-3s1.5 4.5-1.5 5.2-5.8-.7-5.8-3.7 3.6-6 7.4-4.4"/>
+    </g>
+    <g fill="#e4572e">
+      <ellipse cx="36" cy="76" rx="6" ry="3" transform="rotate(-20 36 76)"/>
+      <ellipse cx="86" cy="56" rx="6" ry="3" transform="rotate(24 86 56)"/>
+    </g>
+    <circle cx="66" cy="54" r="2.8" fill="#f2c46b"/>
+    <circle cx="52" cy="80" r="2.4" fill="#f2c46b"/>
+  </symbol>
+
+  <symbol id="dish-peppersoup" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#9c3a12"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#c4581f"/>
+    <path d="M34 58c10-8 26-10 38-4 8 4 10 10 6 14-8 8-30 8-40 0-4-3-6-7-4-10z" fill="#6f6a5a"/>
+    <path d="M40 56c8-5 20-6 28-2" stroke="#8d8878" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <circle cx="44" cy="58" r="2.6" fill="#2b2b28"/>
+    <path d="M76 50c8-6 16-4 18 4-6 6-14 4-18-4z" fill="#7d7767"/>
+    <g fill="#2f7a4f">
+      <ellipse cx="34" cy="66" rx="7" ry="3.4" transform="rotate(-18 34 66)"/>
+      <ellipse cx="82" cy="66" rx="7" ry="3.4" transform="rotate(18 82 66)"/>
+      <ellipse cx="58" cy="76" rx="7" ry="3.4"/>
+    </g>
+    <g fill="#e4572e">
+      <circle cx="50" cy="72" r="2.6"/><circle cx="70" cy="70" r="2.6"/>
+      <circle cx="60" cy="64" r="2.2"/>
+    </g>
+    <path d="M46 36c6-6-3-10 3-17M60 32c6-7-3-11 3-18M74 36c6-6-3-10 3-17"
+          fill="none" stroke="#cdb391" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+  </symbol>
+
+  <!-- Small chops -->
+  <symbol id="dish-moimoi" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M22 78c8-22 24-34 38-34s30 12 38 34c-24 8-52 8-76 0z" fill="#2f7a4f"/>
+    <path d="M60 44c14 0 30 12 38 34-13 4-27 6-38 6z" fill="#276641"/>
+    <path d="M32 74c6-16 16-24 28-24s22 8 28 24c-18 6-38 6-56 0z" fill="#e08a2c"/>
+    <path d="M38 70c5-11 13-16 22-16s17 5 22 16c-14 4-30 4-44 0z" fill="#f0a33c"/>
+    <circle cx="52" cy="66" r="3" fill="#c4501c"/>
+    <circle cx="68" cy="63" r="2.6" fill="#c4501c"/>
+    <ellipse cx="60" cy="70" rx="7" ry="5" fill="#fffdf6"/>
+    <circle cx="60" cy="70" r="2.8" fill="#f2c46b"/>
+  </symbol>
+
+  <symbol id="dish-puffpuff" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <circle cx="45" cy="74" r="17" fill="#c47b21"/>
+    <circle cx="45" cy="71" r="16" fill="#e2a03c"/>
+    <circle cx="76" cy="76" r="15" fill="#c47b21"/>
+    <circle cx="76" cy="73" r="14" fill="#e2a03c"/>
+    <circle cx="60" cy="54" r="16" fill="#c47b21"/>
+    <circle cx="60" cy="51" r="15" fill="#eeb254"/>
+    <g fill="#fff8e8" opacity=".85">
+      <circle cx="54" cy="45" r="1.7"/><circle cx="66" cy="48" r="1.5"/>
+      <circle cx="40" cy="66" r="1.6"/><circle cx="50" cy="76" r="1.4"/>
+      <circle cx="80" cy="70" r="1.5"/><circle cx="72" cy="80" r="1.3"/>
+      <circle cx="60" cy="58" r="1.4"/>
+    </g>
+    <path d="M52 44c4-3 10-3 14 1" stroke="#c98a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="dish-dodo" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <g>
+      <ellipse cx="44" cy="76" rx="17" ry="11" fill="#c98524" transform="rotate(-18 44 76)"/>
+      <ellipse cx="44" cy="74" rx="15" ry="9" fill="#f0b23c" transform="rotate(-18 44 74)"/>
+      <ellipse cx="74" cy="78" rx="17" ry="11" fill="#c98524" transform="rotate(14 74 78)"/>
+      <ellipse cx="74" cy="76" rx="15" ry="9" fill="#f0b23c" transform="rotate(14 74 76)"/>
+      <ellipse cx="58" cy="58" rx="18" ry="11" fill="#c98524" transform="rotate(-6 58 58)"/>
+      <ellipse cx="58" cy="56" rx="16" ry="9" fill="#f7c357" transform="rotate(-6 58 56)"/>
+      <ellipse cx="82" cy="56" rx="15" ry="10" fill="#c98524" transform="rotate(26 82 56)"/>
+      <ellipse cx="82" cy="54" rx="13" ry="8" fill="#f0b23c" transform="rotate(26 82 54)"/>
+    </g>
+    <g fill="#a8601a" opacity=".55">
+      <ellipse cx="44" cy="74" rx="4" ry="2.4" transform="rotate(-18 44 74)"/>
+      <ellipse cx="74" cy="76" rx="4" ry="2.4" transform="rotate(14 74 76)"/>
+      <ellipse cx="58" cy="56" rx="4.4" ry="2.6" transform="rotate(-6 58 56)"/>
+    </g>
+  </symbol>
+
+  <!-- Drinks -->
+  <symbol id="dish-chapman" viewBox="0 0 120 120">
+    <use href="#glass-base"/>
+    <path d="M44 40h32l-4 64a6 6 0 0 1-6 5.5H54a6 6 0 0 1-6-5.5z" fill="#c92f3c"/>
+    <path d="M44 40h32l-1 16H45z" fill="#e04a52" opacity=".8"/>
+    <g fill="#fff" opacity=".35">
+      <rect x="50" y="48" width="7" height="10" rx="2" transform="rotate(12 50 48)"/>
+      <rect x="63" y="62" width="7" height="10" rx="2" transform="rotate(-14 63 62)"/>
+      <rect x="53" y="76" width="7" height="10" rx="2" transform="rotate(8 53 76)"/>
+    </g>
+    <circle cx="66" cy="54" r="8" fill="#8ac34a" opacity=".9"/>
+    <circle cx="66" cy="54" r="5" fill="#c6e39a" opacity=".9"/>
+    <path d="M78 14 66 44" stroke="#f2c46b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M38 26c8-4 14 0 14 8-8 3-14-1-14-8z" fill="#e4572e"/>
+    <path d="M52 34v8" stroke="#2f7a4f" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="dish-zobo" viewBox="0 0 120 120">
+    <use href="#glass-base"/>
+    <path d="M44 40h32l-4 64a6 6 0 0 1-6 5.5H54a6 6 0 0 1-6-5.5z" fill="#7d1230"/>
+    <path d="M44 40h32l-1 14H45z" fill="#a31c3f" opacity=".9"/>
+    <g fill="#fff" opacity=".18">
+      <circle cx="54" cy="62" r="3"/><circle cx="66" cy="74" r="2.4"/>
+      <circle cx="58" cy="88" r="2"/>
+    </g>
+    <path d="M60 20c8 0 12 6 10 12-6-2-8-6-10-12z" fill="#c0324f"/>
+    <path d="M60 20c-8 0-12 6-10 12 6-2 8-6 10-12z" fill="#a3223c"/>
+    <path d="M50 32c-6 4-6 10 0 12 4-4 4-8 0-12z" fill="#c0324f"/>
+    <path d="M70 32c6 4 6 10 0 12-4-4-4-8 0-12z" fill="#a3223c"/>
+    <circle cx="60" cy="33" r="4" fill="#f2c46b"/>
+    <path d="M30 84c8-6 14-2 14 6-8 4-14 0-14-6z" fill="#2f7a4f"/>
+  </symbol>
+
+  <symbol id="dish-kunu" viewBox="0 0 120 120">
+    <use href="#glass-base"/>
+    <path d="M44 40h32l-4 64a6 6 0 0 1-6 5.5H54a6 6 0 0 1-6-5.5z" fill="#e6d5b8"/>
+    <path d="M44 40h32l-1 14H45z" fill="#f3e7d0"/>
+    <g fill="#fff" opacity=".5">
+      <circle cx="55" cy="60" r="2.6"/><circle cx="66" cy="70" r="2.2"/>
+      <circle cx="57" cy="82" r="2"/><circle cx="64" cy="92" r="1.8"/>
+    </g>
+    <ellipse cx="60" cy="40" rx="16" ry="5" fill="#fdf8ef"/>
+    <path d="M52 26a7 7 0 1 1 0 .1z" fill="#a8763f"/>
+    <path d="M68 30a6 6 0 1 1 0 .1z" fill="#c08d4f"/>
+    <path d="M60 20a5 5 0 1 1 0 .1z" fill="#8f6231"/>
+    <path d="M34 82c8-4 12 0 12 6-8 3-12-1-12-6z" fill="#d8a55e"/>
+  </symbol>
+</svg>
+</body>
+</html>

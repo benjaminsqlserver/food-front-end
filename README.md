@@ -62,6 +62,8 @@ Open in browser.cmd        double-click to view the site
 serve.ps1                  dependency-free local server (PowerShell only)
 Dockerfile                 nginx image for Cloud Run — see DEPLOY.md
 deploy/default.conf.template
+codepen/                   pane build for the CodePen embed
+cover/                     1000x420 DEV cover image and its generator
 site.webmanifest
 assets/
   icon.svg
