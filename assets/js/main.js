@@ -152,6 +152,9 @@ function initOrderBar() {
 function boot() {
   document.documentElement.classList.remove('no-js');
   document.documentElement.classList.add('js');
+  // Watched by the classic script in <head>, which shows a diagnostic banner if
+  // this flag never appears (the file:// module-blocking case).
+  document.documentElement.dataset.booted = 'true';
 
   initToasts();
   initTheme();

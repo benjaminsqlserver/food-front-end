@@ -26,6 +26,21 @@
 
 <script type="module" src="assets/js/main.js"></script>
 
+<script>
+  /* A classic script, so it still runs in the one case the module above cannot:
+     opening this file straight from disk. Browsers refuse module scripts over
+     file:// on CORS grounds, which would leave the menu and guest book silently
+     blank. main.js stamps data-booted on <html>; if that never happens, say so
+     rather than showing empty sections. */
+  window.addEventListener('load', function () {
+    window.setTimeout(function () {
+      if (document.documentElement.dataset.booted === 'true') return;
+      var warning = document.getElementById('boot-warning');
+      if (warning) warning.hidden = false;
+    }, 500);
+  });
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -118,6 +133,28 @@
 </header>
 
 <main id="main">
+
+  <!-- Shown only when the ES modules never booted — see the classic script in
+       <head>. Hidden by default so it costs a served page nothing. -->
+  <div class="boot-warning" id="boot-warning" role="alert" hidden>
+    <div class="shell">
+      <p class="boot-warning__title">This page is running without its scripts.</p>
+      <p>
+        The menu and the guest book are built in the browser, so they will look
+        empty until the site is served over <code>http://</code>. Browsers block
+        JavaScript modules on <code>file://</code> addresses.
+      </p>
+      <p>
+        From this folder, run <code>npx serve .</code> or
+        <code>python -m http.server 8000</code>, then open the address it prints.
+        Everything below works from there.
+      </p>
+      <p>
+        In the meantime, you can still reach us on
+        <a href="tel:+2347051870773">+234&nbsp;705&nbsp;187&nbsp;0773</a>.
+      </p>
+    </div>
+  </div>
 
   <!-- ============================================================ hero -->
   <section class="hero" id="top" aria-labelledby="hero-title">

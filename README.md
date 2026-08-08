@@ -28,6 +28,11 @@ php -S localhost:8000
 
 Then open `http://localhost:8000`.
 
+> **Opening `index.html` straight from the file manager will not work.** Browsers
+> refuse ES modules on `file://` addresses, so no JavaScript runs and the menu and
+> guest book render empty. The page detects this and shows a banner explaining it
+> rather than leaving you with blank sections — but the fix is to serve it.
+
 ---
 
 ## What is in here
@@ -125,7 +130,8 @@ Accessibility was a build constraint, not a pass at the end.
   border style that survives when the palette is replaced.
 - **No-JS.** Content, address, hours and phone number are all in the static
   HTML; the reveal animations only arm themselves once JS is running, so
-  nothing is ever trapped invisible.
+  nothing is ever trapped invisible. If the modules fail to boot at all, a
+  `role="alert"` banner explains why instead of leaving empty sections.
 
 ---
 
