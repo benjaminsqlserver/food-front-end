@@ -1,7 +1,8 @@
 # DEV.to submission draft
 
 Copy the body below into the DEV editor. Tags: `devchallenge`, `frontendchallenge`,
-`webdev`, `javascript`. Replace `YOUR-LIVE-URL` with the deployed link before publishing.
+`webdev`, `javascript`. Replace `YOUR-CLOUD-RUN-URL` with the Service URL that
+`gcloud run deploy` prints — see [DEPLOY.md](DEPLOY.md).
 
 ---
 
@@ -45,8 +46,9 @@ What it does:
 
 ## Demo
 
-**Live:** YOUR-LIVE-URL
-**Source:** YOUR-REPO-URL (MIT licensed)
+{% embed YOUR-CLOUD-RUN-URL %}
+
+**Source:** <https://github.com/benjaminsqlserver/food-front-end> (MIT licensed)
 
 ## Journey
 

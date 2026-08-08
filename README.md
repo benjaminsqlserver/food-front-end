@@ -47,6 +47,11 @@ php -S localhost:8000       # PHP
 
 </details>
 
+## Deploying
+
+Hosted on Google Cloud Run. See **[DEPLOY.md](DEPLOY.md)** — it runs entirely
+from Google Cloud Shell in the browser, so nothing is installed locally.
+
 ---
 
 ## What is in here
@@ -55,6 +60,8 @@ php -S localhost:8000       # PHP
 index.html                 markup, JSON-LD, and the inline SVG dish sprite
 Open in browser.cmd        double-click to view the site
 serve.ps1                  dependency-free local server (PowerShell only)
+Dockerfile                 nginx image for Cloud Run — see DEPLOY.md
+deploy/default.conf.template
 site.webmanifest
 assets/
   icon.svg

@@ -1,0 +1,21 @@
+# Keep the build context to just the site and its nginx config.
+.git
+.gitignore
+.github
+
+# Local launcher — the container serves with nginx instead.
+serve.ps1
+*.cmd
+
+# Docs and drafts do not belong in the image.
+README.md
+SUBMISSION.md
+LICENSE
+
+# Editor / OS noise
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+desktop.ini
+node_modules
