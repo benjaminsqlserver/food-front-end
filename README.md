@@ -12,26 +12,40 @@ ES modules, served straight from disk.
 
 ## Running it
 
-ES modules are blocked over `file://`, so the page needs to be served over HTTP.
-Any static server works:
+**Double-click `Open in browser.cmd`.**
 
-```bash
-# Node
-npx serve .
+That is the whole thing. It serves this folder and opens your browser. **Nothing
+is installed** — it uses only PowerShell, which ships with Windows. Close the
+console window when you are done.
 
-# Python
-python -m http.server 8000
+> **Do not open `index.html` directly.** Browsers refuse ES modules on `file://`
+> addresses, so no JavaScript runs and the menu and guest book render empty. The
+> page detects this and shows a banner explaining it rather than leaving you with
+> blank sections — but the fix is to serve it.
 
-# PHP
-php -S localhost:8000
+<details>
+<summary>Other ways to serve it</summary>
+
+```powershell
+# PowerShell, with options
+.\serve.ps1                 # http://localhost:8000, opens a browser
+.\serve.ps1 -Port 3000      # a specific port
+.\serve.ps1 -NoBrowser      # no browser window
 ```
 
-Then open `http://localhost:8000`.
+`serve.ps1` steps up to the next free port automatically if the one it wants is
+taken, refuses to serve anything outside this folder, and sends `no-store` so you
+never see a stale file while editing.
 
-> **Opening `index.html` straight from the file manager will not work.** Browsers
-> refuse ES modules on `file://` addresses, so no JavaScript runs and the menu and
-> guest book render empty. The page detects this and shows a banner explaining it
-> rather than leaving you with blank sections — but the fix is to serve it.
+If you would rather use a tool you already have, any static server works:
+
+```bash
+npx serve .                 # Node
+python -m http.server 8000  # Python
+php -S localhost:8000       # PHP
+```
+
+</details>
 
 ---
 
@@ -39,6 +53,8 @@ Then open `http://localhost:8000`.
 
 ```
 index.html                 markup, JSON-LD, and the inline SVG dish sprite
+Open in browser.cmd        double-click to view the site
+serve.ps1                  dependency-free local server (PowerShell only)
 site.webmanifest
 assets/
   icon.svg
