@@ -1,7 +1,7 @@
 # Iya Bashirat Restaurant
 
 A landing page for a fictional Nigerian restaurant on Ajayi Crowther Street,
-Victoria Island, Lagos — built for the
+Victoria Island, Lagos, built for the
 [DEV Frontend Challenge: Comfort Food Edition](https://dev.to/challenges/frontend-2026-07-29)
 (Perfect Landing prompt).
 
@@ -15,13 +15,13 @@ ES modules, served straight from disk.
 **Double-click `Open in browser.cmd`.**
 
 That is the whole thing. It serves this folder and opens your browser. **Nothing
-is installed** — it uses only PowerShell, which ships with Windows. Close the
+is installed.** It uses only PowerShell, which ships with Windows. Close the
 console window when you are done.
 
 > **Do not open `index.html` directly.** Browsers refuse ES modules on `file://`
 > addresses, so no JavaScript runs and the menu and guest book render empty. The
 > page detects this and shows a banner explaining it rather than leaving you with
-> blank sections — but the fix is to serve it.
+> blank sections. But the fix is to serve it.
 
 <details>
 <summary>Other ways to serve it</summary>
@@ -49,7 +49,7 @@ php -S localhost:8000       # PHP
 
 ## Deploying
 
-Hosted on Google Cloud Run. See **[DEPLOY.md](DEPLOY.md)** — it runs entirely
+Hosted on Google Cloud Run. See **[DEPLOY.md](DEPLOY.md)**. It runs entirely
 from Google Cloud Shell in the browser, so nothing is installed locally.
 
 ---
@@ -60,7 +60,7 @@ from Google Cloud Shell in the browser, so nothing is installed locally.
 index.html                 markup, JSON-LD, and the inline SVG dish sprite
 Open in browser.cmd        double-click to view the site
 serve.ps1                  dependency-free local server (PowerShell only)
-Dockerfile                 nginx image for Cloud Run — see DEPLOY.md
+Dockerfile                 nginx image for Cloud Run (see DEPLOY.md)
 deploy/default.conf.template
 codepen/                   pane build for the CodePen embed
 cover/                     1000x420 DEV cover image and its generator
@@ -72,7 +72,7 @@ assets/
     components.css         buttons, chips, cards, forms, dialogs, toasts, carousel
     sections.css           header, hero, story, menu, reviews, reserve, visit, footer
   js/
-    main.js                entry point — boots each feature, wires page-level glue
+    main.js                entry point: boots each feature, wires page glue
     data/
       menu.js              17 dishes: prices, heat, diet tags, allergens
       restaurant.js        address, phone, opening hours, socials
@@ -105,7 +105,7 @@ allergens and heat.
 
 **The order tray.** Add dishes, change quantities, pick pickup or delivery, add
 a note. The tray survives a page reload. Checkout composes a readable order and
-opens WhatsApp with it pre-filled — which is how a Lagos restaurant actually
+opens WhatsApp with it pre-filled, which is how a Lagos restaurant actually
 takes orders. No payment is taken and nothing is sent anywhere.
 
 **Live opening hours.** "Open now", "Closing soon" or "Closed" is computed in
@@ -146,7 +146,7 @@ Accessibility was a build constraint, not a pass at the end.
   (WCAG 2.2.2).
 - **Anchor links move focus,** not just the viewport, so the next Tab continues
   from where the eye is.
-- **Colour.** Every foreground/background pair in both themes meets WCAG AA —
+- **Colour.** Every foreground/background pair in both themes meets WCAG AA,
   including the WhatsApp button, which uses a darkened green because the
   official brand colour gives white text 2.2:1.
 - **Themes.** Light, dark and OS-following. The OS preference is followed until
@@ -165,8 +165,8 @@ Accessibility was a build constraint, not a pass at the end.
 The palette comes from a Lagos kitchen: palm oil, clay pot, jollof smoke, ugu
 leaf, and the indigo of adire cloth. The page ground is a faint two-point
 gradient wash; the hero is topped with an aso-oke stripe built from a repeating
-gradient. Type is a system stack — a Palatino-ish serif for display, system-ui
-for text — so there is not a single font request.
+gradient. Type is a system stack, a Palatino-ish serif for display and system-ui
+for text, so there is not a single font request.
 
 Colour is defined once as a semantic token layer (`--bg`, `--text`, `--brand`,
 …) with the complete light palette on bare `:root`, and only those tokens
@@ -179,15 +179,15 @@ components, sections` so specificity never needs an `!important`.
 
 Built and checked with:
 
-- a selector audit — every `#id`, `data-*` hook, `aria-*` reference and
+- a selector audit proving every `#id`, `data-*` hook, `aria-*` reference and
   `<use href>` in the JS and HTML resolves;
-- a jsdom runtime suite — 62 assertions covering boot, rendering, filtering,
+- a jsdom runtime suite of 62 assertions covering boot, rendering, filtering,
   sorting, the tray and its totals, reservation validation, the carousel, the
   hours table, theming and contact hydration, with zero console errors;
 - 19 timezone assertions pinning the Africa/Lagos open/closed logic to fixed
   UTC instants;
-- a structural accessibility audit — landmarks, heading order, control names,
-  field labels, `aria-describedby` targets, dialog names, duplicate ids;
+- a structural accessibility audit covering landmarks, heading order, control
+  names, field labels, `aria-describedby` targets, dialog names, duplicate ids;
 - a WCAG contrast check across every token pair in both themes.
 
 ---
@@ -201,4 +201,4 @@ and the forms confirm locally without sending anything anywhere.
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
