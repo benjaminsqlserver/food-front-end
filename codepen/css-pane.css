@@ -1,0 +1,15 @@
+/* ---------------------------------------------------------------------------
+   Leave this pane EMPTY in CodePen.
+
+   The three stylesheets are linked from the HTML pane so that CodePen renders
+   exactly what the repository serves, cascade layers and all:
+
+       @layer reset, tokens, base, utilities, components, sections;
+
+   Concatenating them here would work too, but the linked version cannot drift
+   out of sync with the source. To read them:
+
+   https://cdn.jsdelivr.net/gh/benjaminsqlserver/food-front-end@v1.0/assets/css/base.css
+   https://cdn.jsdelivr.net/gh/benjaminsqlserver/food-front-end@v1.0/assets/css/components.css
+   https://cdn.jsdelivr.net/gh/benjaminsqlserver/food-front-end@v1.0/assets/css/sections.css
+   --------------------------------------------------------------------------- */

@@ -1,0 +1,1259 @@
+<!--
+  Iya Bashirat Restaurant
+  Source: https://github.com/benjaminsqlserver/food-front-end  (MIT)
+
+  Stylesheets and ES modules are loaded straight from the repository via
+  jsDelivr, pinned to the v1.0 tag. Nothing is bundled, minified or flattened:
+  these are the same files the repo serves, and main.js still resolves its own
+  relative imports (./lib/dom.js and friends) against the CDN.
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/benjaminsqlserver/food-front-end@v1.0/assets/css/base.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/benjaminsqlserver/food-front-end@v1.0/assets/css/components.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/benjaminsqlserver/food-front-end@v1.0/assets/css/sections.css">
+<script type="module" src="https://cdn.jsdelivr.net/gh/benjaminsqlserver/food-front-end@v1.0/assets/js/main.js"></script>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+<div id="header-sentinel" aria-hidden="true"></div>
+
+<!-- ============================================================ header -->
+<header class="site-header">
+  <div class="shell header__inner">
+    <a class="brand" href="#top">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <circle cx="24" cy="24" r="23" fill="var(--brand)"/>
+        <path d="M8 26h32a16 16 0 0 1-32 0z" fill="var(--gold-300)"/>
+        <path d="M6 24.5h36" stroke="var(--cream-50)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M19 9c3.5 2.6 3.5 5.4 0 8M29 11c2.6 2 2.6 4 0 6" stroke="var(--gold-300)"
+              stroke-width="2.6" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span>
+        <span class="brand__name">Iya Bashirat</span>
+        <span class="brand__sub">Restaurant</span>
+      </span>
+    </a>
+
+    <nav id="primary-nav" class="site-nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#menu">Menu</a></li>
+        <li><a class="nav__link" href="#story">Our Story</a></li>
+        <li><a class="nav__link" href="#experience">The Table</a></li>
+        <li><a class="nav__link" href="#reviews">Reviews</a></li>
+        <li><a class="nav__link" href="#visit">Visit</a></li>
+        <li><a class="btn btn--primary btn--sm" href="#reserve">Reserve a table</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false"
+              aria-label="Switch to dark mode" title="Switch to dark mode">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
+        </svg>
+      </button>
+
+      <button type="button" class="icon-btn tray-toggle" id="tray-toggle" aria-label="Order tray, empty">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 7h16l-1.4 12.1a2 2 0 0 1-2 1.9H7.4a2 2 0 0 1-2-1.9z"/>
+          <path d="M8.5 10V6.6a3.5 3.5 0 0 1 7 0V10"/>
+        </svg>
+        <span class="tray-toggle__count" id="tray-count" hidden>0</span>
+      </button>
+
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle"
+              aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+
+  <!-- ============================================================ hero -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="shell hero__grid">
+      <div>
+        <p class="hero__greeting" lang="yo">Ẹ káàbọ̀ <span lang="en" class="visually-hidden">— welcome</span></p>
+        <h1 class="hero__title" id="hero-title">
+          The pot has been on this street since <em>1998</em>.
+        </h1>
+        <p class="lede">
+          Iya Bashirat cooks Nigerian food the long way — yam pounded in a mortar,
+          jollof smoked over firewood, suya turned by hand over coals. Come and eat
+          the way you would eat at home, only with better plates.
+        </p>
+
+        <p class="open-badge is-open" data-open-badge style="margin-top:1.5rem">
+          <span class="open-badge__dot" aria-hidden="true"></span>
+          <span data-open-label>Open now</span>
+        </p>
+        <p class="field__hint" data-open-detail style="margin-top:.4rem">
+          Serving daily from 10 in the morning.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#menu">
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 5h16v14H4z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M8 9.5h8M8 14h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            See the menu
+          </a>
+          <a class="btn btn--whatsapp" data-whatsapp-message="Hello Iya Bashirat! I would like to place an order."
+             href="https://wa.me/2347051870773" target="_blank" rel="noopener noreferrer">
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1a13 13 0 0 1-5.9-5.2c-.4-.7-.9-1.6-.9-2.5s.5-1.4.7-1.6c.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6a9 9 0 0 0 3.8 3.3c.3.1.5.1.6-.1l.7-.9c.2-.2.3-.2.6-.1l2 .9c.3.1.4.2.4.4z"/>
+            </svg>
+            Order on WhatsApp
+          </a>
+        </div>
+
+        <dl class="hero__facts">
+          <div class="hero__fact">
+            <dt>Years on Ajayi Crowther</dt>
+            <dd>28</dd>
+          </div>
+          <div class="hero__fact">
+            <dt>Dishes on the menu</dt>
+            <dd>17</dd>
+          </div>
+          <div class="hero__fact">
+            <dt>Delivery across VI</dt>
+            <dd>45 min</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero__plate" aria-hidden="true">
+        <div class="hero__plate-ring"></div>
+        <svg class="hero__dish hero__dish--main" viewBox="0 0 120 120"><use href="#dish-jollof"></use></svg>
+        <svg class="hero__dish hero__dish--a" viewBox="0 0 120 120"><use href="#dish-suya"></use></svg>
+        <svg class="hero__dish hero__dish--b" viewBox="0 0 120 120"><use href="#dish-chapman"></use></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== ribbon -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon__track">
+      <span class="ribbon__item">Firewood jollof</span>
+      <span class="ribbon__item">Iyán tí a gún</span>
+      <span class="ribbon__item">Abula every day</span>
+      <span class="ribbon__item">Suya off the coals</span>
+      <span class="ribbon__item">Ata dindin</span>
+      <span class="ribbon__item">Cold Chapman</span>
+      <span class="ribbon__item">Firewood jollof</span>
+      <span class="ribbon__item">Iyán tí a gún</span>
+      <span class="ribbon__item">Abula every day</span>
+      <span class="ribbon__item">Suya off the coals</span>
+      <span class="ribbon__item">Ata dindin</span>
+      <span class="ribbon__item">Cold Chapman</span>
+    </div>
+  </div>
+
+  <!-- =========================================================== story -->
+  <section class="section" id="story" aria-labelledby="story-title">
+    <div class="shell story__grid">
+      <div data-reveal>
+        <div class="story__portrait">
+          <svg viewBox="0 0 220 240" role="img" aria-labelledby="portrait-title">
+            <title id="portrait-title">An illustration of Iya Bashirat stirring a clay pot over a wood fire</title>
+            <!-- fire -->
+            <ellipse cx="110" cy="216" rx="62" ry="12" fill="#e0c9a8" opacity=".55"/>
+            <path d="M84 214c2-12 10-16 12-26 6 8 4 14 8 18 3-6 2-12 8-16 6 10 12 12 12 24z" fill="#e4572e"/>
+            <path d="M96 214c1-7 6-9 7-15 4 5 3 9 5 11 2-4 1-7 5-9 4 6 7 7 7 13z" fill="#f2c46b"/>
+            <!-- pot -->
+            <path d="M60 150h100c0 34-20 56-50 56s-50-22-50-56z" fill="#7a4a30"/>
+            <ellipse cx="110" cy="150" rx="50" ry="13" fill="#98603d"/>
+            <ellipse cx="110" cy="149" rx="40" ry="9" fill="#c0432a"/>
+            <!-- steam -->
+            <path d="M92 132c8-8-4-14 4-24M110 128c8-9-4-15 4-25M128 132c8-8-4-14 4-24"
+                  fill="none" stroke="#cdb391" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+            <!-- figure -->
+            <path d="M150 200c0-30 14-52 34-52s34 22 34 52z" fill="#2f6b4f" transform="translate(-42 -6)"/>
+            <circle cx="142" cy="112" r="24" fill="#6b4226"/>
+            <path d="M118 106c0-16 11-27 24-27s24 11 24 27c-6-8-14-11-24-11s-18 3-24 11z" fill="#3a2b20"/>
+            <!-- head wrap -->
+            <path d="M116 96c4-22 20-32 32-30 16 2 24 12 22 26-4-6-12-4-18-10-8 8-24 8-36 14z" fill="#c0432a"/>
+            <path d="M114 92c10-6 24-8 36-14 4 8 12 8 18 10l4 8c-16-2-42 2-58 8z" fill="#d8912b"/>
+            <!-- arm to spoon -->
+            <path d="M124 152c-14-4-24-14-26-26" fill="none" stroke="#6b4226" stroke-width="13" stroke-linecap="round"/>
+            <path d="M98 128 74 156" stroke="#98603d" stroke-width="7" stroke-linecap="round"/>
+            <ellipse cx="70" cy="161" rx="11" ry="7" fill="#98603d" transform="rotate(-40 70 161)"/>
+          </svg>
+        </div>
+        <p class="story__caption">Iya Bashirat at the back fire, 6:40am, before the doors open.</p>
+      </div>
+
+      <div class="stack" data-reveal style="--reveal-delay:1">
+        <p class="eyebrow">Our story</p>
+        <h2 id="story-title">One woman, one pot, and a street that got busier around her.</h2>
+        <p>
+          In 1998 Bashirat Adeyemi sold rice and stew from a bench outside her brother's
+          shop on Ajayi Crowther Street. She had one pot, one bag of rice and a rule she
+          has never broken: <strong>nothing leaves the kitchen that she would not put in
+          front of her own children.</strong>
+        </p>
+        <p>
+          Victoria Island grew up around her — glass towers, banks, traffic that does not
+          move. The bench became a counter, then a dining room, then the room upstairs.
+          The pot is still the same. So is the rule.
+        </p>
+        <p>
+          Everything here is cooked to order, in the open, by cooks who trained under her.
+          The yam is pounded by hand each morning because a machine makes it gummy. The
+          jollof sits over firewood until the bottom catches, because that is where the
+          flavour lives.
+        </p>
+
+        <dl class="stats">
+          <div>
+            <dd class="stats__value" data-count="28">28</dd>
+            <dt class="stats__label">Years on this street</dt>
+          </div>
+          <div>
+            <dd class="stats__value" data-count="120" data-count-suffix="+">120+</dd>
+            <dt class="stats__label">Plates served daily</dt>
+          </div>
+          <div>
+            <dd class="stats__value" data-count="9">9</dd>
+            <dt class="stats__label">Cooks she trained</dt>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ menu -->
+  <section class="section section--tint" id="menu" aria-labelledby="menu-title">
+    <div class="shell">
+      <div class="menu__head">
+        <div class="section-head" style="margin-bottom:0">
+          <p class="eyebrow">The menu</p>
+          <h2 id="menu-title">What is on the fire today</h2>
+          <p class="lede" id="menu-blurb">
+            Seventeen plates, cooked the way they are cooked at home.
+          </p>
+        </div>
+      </div>
+
+      <noscript>
+        <p class="no-js-note">
+          The interactive menu needs JavaScript. You can still see everything we cook by
+          calling <a href="tel:+2347051870773">+234 705 187 0773</a> — we will read it to you.
+        </p>
+      </noscript>
+
+      <ul class="category-strip">
+        <li>
+          <button type="button" class="category-tile" data-jump-category="rice">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#dish-jollof"></use></svg>
+            Rice &amp; Grains
+          </button>
+        </li>
+        <li>
+          <button type="button" class="category-tile" data-jump-category="swallow">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#dish-egusi"></use></svg>
+            Swallow &amp; Soup
+          </button>
+        </li>
+        <li>
+          <button type="button" class="category-tile" data-jump-category="grill">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#dish-suya"></use></svg>
+            Grills &amp; Peppered
+          </button>
+        </li>
+        <li>
+          <button type="button" class="category-tile" data-jump-category="chops">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#dish-puffpuff"></use></svg>
+            Small Chops
+          </button>
+        </li>
+        <li>
+          <button type="button" class="category-tile" data-jump-category="drinks">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#dish-chapman"></use></svg>
+            Drinks
+          </button>
+        </li>
+      </ul>
+
+      <form class="filters" id="menu-filters" role="search" aria-label="Filter the menu">
+        <div class="filters__row">
+          <div class="field filters__search">
+            <label class="field__label" for="menu-search">Search the menu</label>
+            <div class="search-control">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="11" cy="11" r="6.5"/>
+                <path d="m16 16 4.5 4.5" stroke-linecap="round"/>
+              </svg>
+              <input class="field__control" type="search" id="menu-search" name="q"
+                     placeholder="Try “egusi”, “plantain”, “pepper”…"
+                     autocomplete="off" spellcheck="false">
+            </div>
+          </div>
+
+          <div class="field filters__sort">
+            <label class="field__label" for="menu-sort">Sort by</label>
+            <select class="field__control" id="menu-sort" name="sort">
+              <option value="default">Kitchen order</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="spice-desc">Heat: hottest first</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+
+          <div class="filters__reset">
+            <button type="button" class="btn btn--ghost" id="menu-reset">Clear filters</button>
+          </div>
+        </div>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">Course</legend>
+          <ul class="chip-list" id="category-chips">
+            <!-- Chips are rendered from data by assets/js/modules/menu.js -->
+          </ul>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">Dietary needs</legend>
+          <ul class="chip-list" id="diet-toggles">
+            <!-- Toggles are rendered from data by assets/js/modules/menu.js -->
+          </ul>
+        </fieldset>
+      </form>
+
+      <p class="visually-hidden" id="menu-status" role="status" aria-live="polite"></p>
+
+      <ul class="dish-grid" id="menu-grid">
+        <!-- Dish cards are rendered from data by assets/js/modules/menu.js -->
+      </ul>
+
+      <div class="menu__empty" id="menu-empty" hidden>
+        <h3>Nothing matches that</h3>
+        <p>Try a different course, or clear the filters and start again.</p>
+        <button type="button" class="btn btn--primary" id="menu-empty-reset">Clear all filters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== experience -->
+  <section class="section" id="experience" aria-labelledby="experience-title">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">The table</p>
+        <h2 id="experience-title">Eat in, take away, or let us bring it to you</h2>
+        <p class="lede">
+          Four things we get right, every day, whether you are eating upstairs or
+          on a Zoom call two streets away.
+        </p>
+      </div>
+
+      <ul class="feature-grid">
+        <li class="feature" data-reveal>
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 18c0-5 3.6-9 8-9s8 4 8 9zM12 9V4M8.5 6 12 9l3.5-3"/></svg>
+          </span>
+          <h3>Cooked to order</h3>
+          <p>
+            Nothing sits under a lamp. Your soup is ladled when you order it, which is
+            why we say 20 minutes and mean it.
+          </p>
+        </li>
+
+        <li class="feature" data-reveal style="--reveal-delay:1">
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 5 12L17 12h4"/></svg>
+          </span>
+          <h3>Heat you choose</h3>
+          <p>
+            Every dish carries a heat rating, and every one of them can be made milder.
+            Ask. Nobody here is offended by a mild ayamase.
+          </p>
+        </li>
+
+        <li class="feature" data-reveal style="--reveal-delay:2">
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-5.2-7.5-10.5a7.5 7.5 0 0 1 15 0C19.5 15.8 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.6"/></svg>
+          </span>
+          <h3>45-minute delivery</h3>
+          <p>
+            Across Victoria Island, Ikoyi and Lekki Phase 1 for a flat ₦1,500. We send a
+            rider, not a courier who has never held a soup flask.
+          </p>
+        </li>
+
+        <li class="feature" data-reveal style="--reveal-delay:3">
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 20V9l7-5 7 5v11z"/><path d="M10 20v-6h4v6"/></svg>
+          </span>
+          <h3>The room upstairs</h3>
+          <p>
+            Twenty-four seats, one long table, and a door that closes. Book it for a
+            birthday, an owambe overflow, or a very serious meeting about rice.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================= reviews -->
+  <section class="section section--tint" id="reviews" aria-labelledby="reviews-title">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Guest book</p>
+        <h2 id="reviews-title">What people say when they push the plate away</h2>
+      </div>
+
+      <div class="carousel" id="reviews-carousel"
+           role="group" aria-roledescription="carousel" aria-label="Guest reviews">
+        <ul class="carousel__track" id="review-track" tabindex="0"
+            aria-label="Reviews, use the left and right arrow keys to move between them">
+          <!-- Slides are rendered from data by assets/js/modules/testimonials.js -->
+        </ul>
+
+        <div class="carousel__controls">
+          <button type="button" class="icon-btn" id="review-prev" aria-label="Previous review">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14.5 5-7 7 7 7"/></svg>
+          </button>
+
+          <ul class="carousel__dots" id="review-dots">
+            <!-- Dots are rendered by assets/js/modules/testimonials.js -->
+          </ul>
+
+          <button type="button" class="icon-btn" id="review-next" aria-label="Next review">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9.5 5 7 7-7 7"/></svg>
+          </button>
+
+          <button type="button" class="icon-btn" id="review-play" aria-pressed="false"
+                  aria-label="Play reviews automatically" title="Play reviews automatically">
+            <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M8 5.5 18 12 8 18.5z" fill="currentColor" stroke="none"/>
+            </svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9.5 5v14M14.5 5v14"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= reserve -->
+  <section class="section" id="reserve" aria-labelledby="reserve-title">
+    <div class="shell reserve__grid">
+      <div class="stack" data-reveal>
+        <p class="eyebrow">Reserve</p>
+        <h2 id="reserve-title">Keep a table warm</h2>
+        <p class="lede">
+          We hold tables for 15 minutes past the booking time — Lagos traffic is
+          understood here. For eight guests or more, please call so we can arrange
+          the long table upstairs.
+        </p>
+        <p class="reserve__note">
+          <strong>This is a demonstration site.</strong> Submitting the form does not
+          contact a real restaurant; it composes your booking and hands it to WhatsApp
+          so you can see exactly what would be sent.
+        </p>
+        <ul class="contact-list">
+          <li>
+            <a data-phone-link href="tel:+2347051870773">+234 705 187 0773</a>
+            — call between 9am and 9pm
+          </li>
+          <li>
+            <a data-whatsapp-message="Hello Iya Bashirat! I would like to ask about a booking."
+               href="https://wa.me/2347051870773" target="_blank" rel="noopener noreferrer">
+              Message us on WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <form class="reserve__form" id="reservation-form" novalidate data-reveal style="--reveal-delay:1">
+        <p class="visually-hidden" id="reservation-status" role="alert"></p>
+
+        <div class="form-row form-row--2">
+          <div class="field">
+            <label class="field__label" for="res-name">Name <span aria-hidden="true">*</span></label>
+            <input class="field__control" type="text" id="res-name" name="name"
+                   autocomplete="name" required data-validate
+                   data-error-required="Please tell us the name for the booking."
+                   aria-describedby="res-name-error">
+            <span class="field__error" id="res-name-error" aria-live="polite"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="res-phone">Phone <span aria-hidden="true">*</span></label>
+            <input class="field__control" type="tel" id="res-phone" name="phone"
+                   autocomplete="tel" inputmode="tel" placeholder="0705 187 0773"
+                   required data-validate
+                   data-error-required="We need a number to confirm the booking."
+                   aria-describedby="res-phone-hint res-phone-error">
+            <span class="field__hint" id="res-phone-hint">Nigerian mobile number.</span>
+            <span class="field__error" id="res-phone-error" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="res-email">Email <span class="field__hint">(optional)</span></label>
+          <input class="field__control" type="email" id="res-email" name="email"
+                 autocomplete="email" data-validate aria-describedby="res-email-error">
+          <span class="field__error" id="res-email-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-row form-row--3">
+          <div class="field">
+            <label class="field__label" for="res-date">Date <span aria-hidden="true">*</span></label>
+            <input class="field__control" type="date" id="res-date" name="date"
+                   required data-validate
+                   data-error-required="Choose a date for your visit."
+                   aria-describedby="res-date-error">
+            <span class="field__error" id="res-date-error" aria-live="polite"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="res-time">Time <span aria-hidden="true">*</span></label>
+            <select class="field__control" id="res-time" name="time" required data-validate
+                    data-error-required="Choose a seating time."
+                    aria-describedby="res-time-error">
+              <option value="">Choose a time</option>
+            </select>
+            <span class="field__error" id="res-time-error" aria-live="polite"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="res-guests">Guests <span aria-hidden="true">*</span></label>
+            <select class="field__control" id="res-guests" name="guests" required data-validate
+                    data-error-required="How many are coming?"
+                    aria-describedby="res-guests-error">
+              <option value="1">1 guest</option>
+              <option value="2" selected>2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6 guests</option>
+              <option value="7">7 guests</option>
+              <option value="8">8 guests</option>
+            </select>
+            <span class="field__error" id="res-guests-error" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="res-occasion">Occasion <span class="field__hint">(optional)</span></label>
+          <select class="field__control" id="res-occasion" name="occasion">
+            <option value="none">Just dinner</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Anniversary">Anniversary</option>
+            <option value="Business meal">Business meal</option>
+            <option value="Family gathering">Family gathering</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="res-notes">
+            Anything we should know? <span class="field__hint">(optional)</span>
+          </label>
+          <textarea class="field__control" id="res-notes" name="notes" rows="3"
+                    placeholder="Allergies, a high chair, a quiet corner, less pepper…"
+                    aria-describedby="res-notes-hint"></textarea>
+          <span class="field__hint" id="res-notes-hint">
+            Tell us about allergies here and the kitchen will be told directly.
+          </span>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block">Request this table</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- =========================================================== visit -->
+  <section class="section section--tint" id="visit" aria-labelledby="visit-title">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Find us</p>
+        <h2 id="visit-title">56 Ajayi Crowther Street, Victoria Island</h2>
+        <p class="lede">
+          Two doors down from the bakery, under the green awning. If you can smell
+          smoke and pepper, you have arrived.
+        </p>
+      </div>
+
+      <div class="visit__grid">
+        <div data-reveal>
+          <div class="map">
+            <svg viewBox="0 0 400 300" role="img" aria-labelledby="map-title map-desc">
+              <title id="map-title">Stylised map of Ajayi Crowther Street, Victoria Island</title>
+              <desc id="map-desc">
+                Iya Bashirat Restaurant sits on Ajayi Crowther Street, one block back from
+                Adeola Odeku Street, in Victoria Island, Lagos.
+              </desc>
+              <rect width="400" height="300" fill="#e8dcc6"/>
+              <!-- water -->
+              <path d="M0 250c60-14 120 6 180-6s160-26 220-6v62H0z" fill="#9fc6c9"/>
+              <!-- blocks -->
+              <g fill="#d7c5a8">
+                <rect x="26" y="30" width="96" height="66" rx="6"/>
+                <rect x="146" y="24" width="110" height="72" rx="6"/>
+                <rect x="282" y="34" width="92" height="62" rx="6"/>
+                <rect x="30" y="150" width="90" height="60" rx="6"/>
+                <rect x="286" y="150" width="88" height="58" rx="6"/>
+              </g>
+              <!-- roads -->
+              <g stroke="#fbf5ea" fill="none" stroke-linecap="round">
+                <path d="M0 122h400" stroke-width="20"/>
+                <path d="M134 0v300" stroke-width="16"/>
+                <path d="M272 0v300" stroke-width="12"/>
+                <path d="M0 232h400" stroke-width="12"/>
+              </g>
+              <g stroke="#e0cfae" stroke-width="2" stroke-dasharray="10 10" fill="none">
+                <path d="M0 122h400"/>
+                <path d="M134 0v300"/>
+              </g>
+              <!-- our block -->
+              <rect x="150" y="150" width="110" height="60" rx="6" fill="#c0432a" opacity=".16"/>
+              <!-- labels -->
+              <text x="200" y="116" text-anchor="middle" font-family="system-ui, sans-serif"
+                    font-size="11" font-weight="700" fill="#6a5341">ADEOLA ODEKU ST</text>
+              <text x="146" y="286" font-family="system-ui, sans-serif"
+                    font-size="11" font-weight="700" fill="#6a5341">AJAYI CROWTHER ST</text>
+              <text x="200" y="270" text-anchor="middle" font-family="system-ui, sans-serif"
+                    font-size="10" fill="#3f6d70">LAGOS LAGOON</text>
+              <!-- pin -->
+              <g class="map__pin">
+                <path d="M205 196c0 0-16-12-16-24a16 16 0 0 1 32 0c0 12-16 24-16 24z" fill="#a8391f"/>
+                <circle cx="205" cy="171" r="6" fill="#fff9f1"/>
+              </g>
+              <text x="205" y="150" text-anchor="middle" font-family="system-ui, sans-serif"
+                    font-size="12" font-weight="700" fill="#3a2b20">Iya Bashirat</text>
+            </svg>
+            <div class="map__caption">
+              <p style="margin:0" id="address-text">
+                56 Ajayi Crowther Street, Victoria Island, Lagos, Nigeria
+              </p>
+              <button type="button" class="btn btn--ghost btn--sm" id="copy-address">
+                Copy address
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal style="--reveal-delay:1">
+          <div class="info-card">
+            <h3>Opening hours</h3>
+            <p class="open-badge is-open" data-open-badge style="margin-bottom:.75rem">
+              <span class="open-badge__dot" aria-hidden="true"></span>
+              <span data-open-label>Open now</span>
+            </p>
+            <p class="field__hint" data-open-detail style="margin-bottom:1rem">
+              Serving daily from 10 in the morning.
+            </p>
+            <table class="hours-table">
+              <caption class="visually-hidden">Opening hours, West Africa Time</caption>
+              <thead class="visually-hidden">
+                <tr><th scope="col">Day</th><th scope="col">Hours</th></tr>
+              </thead>
+              <tbody id="hours-body">
+                <tr><th scope="row">Monday</th><td>10 am – 10 pm</td></tr>
+                <tr><th scope="row">Tuesday</th><td>10 am – 10 pm</td></tr>
+                <tr><th scope="row">Wednesday</th><td>10 am – 10 pm</td></tr>
+                <tr><th scope="row">Thursday</th><td>10 am – 10 pm</td></tr>
+                <tr><th scope="row">Friday</th><td>10 am – 11:30 pm</td></tr>
+                <tr><th scope="row">Saturday</th><td>10 am – 11:30 pm</td></tr>
+                <tr><th scope="row">Sunday</th><td>12 pm – 9 pm</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="info-card">
+            <h3>Get in touch</h3>
+            <ul class="contact-list">
+              <li>
+                <strong>Phone &amp; WhatsApp</strong><br>
+                <a data-phone-link href="tel:+2347051870773">+234 705 187 0773</a>
+              </li>
+              <li>
+                <strong>Email</strong><br>
+                <a href="mailto:hello@iyabashirat.ng">hello@iyabashirat.ng</a>
+              </li>
+              <li>
+                <strong>Getting here</strong><br>
+                Street parking after 6pm; the car park behind the bakery is ours until 10pm.
+                Ramp access at the front door and step-free seating on the ground floor.
+              </li>
+            </ul>
+            <p style="margin-top:1.25rem">
+              <a class="btn btn--whatsapp"
+                 data-whatsapp-message="Hello Iya Bashirat! I would like to place an order."
+                 href="https://wa.me/2347051870773" target="_blank" rel="noopener noreferrer">
+                <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1a13 13 0 0 1-5.9-5.2c-.4-.7-.9-1.6-.9-2.5s.5-1.4.7-1.6c.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6a9 9 0 0 0 3.8 3.3c.3.1.5.1.6-.1l.7-.9c.2-.2.3-.2.6-.1l2 .9c.3.1.4.2.4.4z"/>
+                </svg>
+                Order on WhatsApp
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================ footer -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:1rem">
+          <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <circle cx="24" cy="24" r="23" fill="#c0432a"/>
+            <path d="M8 26h32a16 16 0 0 1-32 0z" fill="#f2c46b"/>
+            <path d="M6 24.5h36" stroke="#fff9f1" stroke-width="3" stroke-linecap="round"/>
+            <path d="M19 9c3.5 2.6 3.5 5.4 0 8M29 11c2.6 2 2.6 4 0 6" stroke="#f2c46b"
+                  stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span>
+            <span class="brand__name">Iya Bashirat</span>
+            <span class="brand__sub">Restaurant</span>
+          </span>
+        </a>
+        <p style="font-size:var(--step--1);max-width:32ch">
+          Nigerian home cooking on Ajayi Crowther Street since 1998. Come hungry.
+        </p>
+      </div>
+
+      <div>
+        <h3>Visit</h3>
+        <ul class="footer__list">
+          <li>56 Ajayi Crowther Street</li>
+          <li>Victoria Island, Lagos</li>
+          <li>Nigeria</li>
+          <li><a data-phone-link href="tel:+2347051870773">+234 705 187 0773</a></li>
+          <li><a href="mailto:hello@iyabashirat.ng">hello@iyabashirat.ng</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Follow the pot</h3>
+        <ul class="socials">
+          <li>
+            <a href="https://x.com/IyaBashiratNG" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.1-5.8 6.1H1.5l7.5-8.6L1.2 3h6.6l4.5 5.6zm-1.1 16h1.8L7.7 4.8H5.8z"/>
+              </svg>
+              <span class="visually-hidden">Iya Bashirat on X, at IyaBashiratNG</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@iyabashirat.kitchen" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M16.2 2h-3v13.1a2.7 2.7 0 1 1-2.2-2.7v-3a5.7 5.7 0 1 0 5.2 5.7V8.9a7 7 0 0 0 4 1.3V7.3a4.1 4.1 0 0 1-4-4.1z"/>
+              </svg>
+              <span class="visually-hidden">Iya Bashirat on TikTok, at iyabashirat.kitchen</span>
+            </a>
+          </li>
+          <li>
+            <a data-whatsapp-message="Hello Iya Bashirat!"
+               href="https://wa.me/2347051870773" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1a13 13 0 0 1-5.9-5.2c-.4-.7-.9-1.6-.9-2.5s.5-1.4.7-1.6c.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6a9 9 0 0 0 3.8 3.3c.3.1.5.1.6-.1l.7-.9c.2-.2.3-.2.6-.1l2 .9c.3.1.4.2.4.4z"/>
+              </svg>
+              <span class="visually-hidden">Message Iya Bashirat on WhatsApp</span>
+            </a>
+          </li>
+        </ul>
+        <p style="margin-top:.75rem;font-size:var(--step--1)">
+          <span aria-hidden="true">@IyaBashiratNG</span> ·
+          <span aria-hidden="true">@iyabashirat.kitchen</span>
+        </p>
+      </div>
+
+      <div>
+        <h3>The Sunday list</h3>
+        <form class="newsletter" id="newsletter-form" novalidate>
+          <div class="field">
+            <label class="field__label" for="newsletter-email">
+              What is cooking this week, once a week.
+            </label>
+            <input class="field__control" type="email" id="newsletter-email" name="email"
+                   placeholder="you@example.com" autocomplete="email" required
+                   aria-describedby="newsletter-email-error">
+            <span class="field__error" id="newsletter-email-error" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn--primary">Sign me up</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© <span id="current-year">2026</span> Iya Bashirat Restaurant. A fictional restaurant, built for the DEV Frontend Challenge.</p>
+      <p>Code released under the MIT licence. No trackers, no cookies, no third-party requests.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================================================== sticky order bar -->
+<div class="order-bar" id="order-bar">
+  <p class="order-bar__label">
+    Hungry?
+    <span id="tray-summary">Order on WhatsApp in two taps</span>
+  </p>
+  <button type="button" class="btn btn--primary btn--sm" data-open-tray>
+    View tray
+  </button>
+</div>
+
+<button type="button" class="icon-btn to-top" id="to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ====================================================== order tray -->
+<dialog class="dialog--sheet" id="tray-dialog" aria-labelledby="tray-title">
+  <div class="sheet">
+    <div class="dialog__head">
+      <h2 class="dialog__title" id="tray-title">Your tray</h2>
+      <button type="button" class="icon-btn" data-tray-close aria-label="Close the order tray">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="sheet__body">
+      <div id="tray-empty">
+        <p style="font-weight:600;margin-bottom:.5rem">Nothing here yet.</p>
+        <p style="color:var(--text-muted);font-size:var(--step--1)">
+          Add something from the menu and it will wait for you here — even if you close
+          the tab.
+        </p>
+      </div>
+
+      <ul class="tray-list" id="tray-list" aria-label="Items in your order"></ul>
+
+      <div data-tray-when-filled hidden>
+        <fieldset class="fieldset" style="margin-top:1.25rem">
+          <legend class="fieldset__legend">How will you take it?</legend>
+          <ul class="chip-list">
+            <li>
+              <input class="chip__input" type="radio" name="fulfilment"
+                     id="fulfilment-pickup" value="pickup" checked>
+              <label class="chip" for="fulfilment-pickup">Pickup</label>
+            </li>
+            <li>
+              <input class="chip__input" type="radio" name="fulfilment"
+                     id="fulfilment-delivery" value="delivery">
+              <label class="chip" for="fulfilment-delivery">Delivery · ₦1,500</label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <div class="field" style="margin-top:1.25rem">
+          <label class="field__label" for="tray-note">Note for the kitchen</label>
+          <textarea class="field__control" id="tray-note" rows="2"
+                    placeholder="Less pepper, extra dodo, no crayfish…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet__foot" data-tray-when-filled hidden>
+      <div class="tray-totals">
+        <p class="tray-totals__row"><span>Subtotal</span><span id="tray-subtotal">₦0</span></p>
+        <p class="tray-totals__row"><span>Delivery</span><span id="tray-delivery">Free</span></p>
+        <p class="tray-totals__row tray-totals__row--grand"><span>Total</span><span id="tray-total">₦0</span></p>
+      </div>
+      <button type="button" class="btn btn--whatsapp btn--block" data-tray-action="checkout">
+        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1a13 13 0 0 1-5.9-5.2c-.4-.7-.9-1.6-.9-2.5s.5-1.4.7-1.6c.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6a9 9 0 0 0 3.8 3.3c.3.1.5.1.6-.1l.7-.9c.2-.2.3-.2.6-.1l2 .9c.3.1.4.2.4.4z"/>
+        </svg>
+        Send order on WhatsApp
+      </button>
+      <p style="margin-top:.6rem;font-size:.78rem;color:var(--text-muted);text-align:center">
+        No payment is taken here. You confirm everything with us on WhatsApp.
+      </p>
+    </div>
+  </div>
+</dialog>
+
+<!-- ==================================================== dish detail -->
+<!-- Labelled dynamically with the dish name when opened, so the accessible name
+     is never a dangling reference to markup that has not been rendered yet. -->
+<dialog class="dialog--centre" id="dish-dialog" aria-label="Dish details">
+  <div class="dialog-panel" style="overflow:hidden;position:relative">
+    <button type="button" class="icon-btn" data-dish-close aria-label="Close dish details"
+            style="position:absolute;top:.75rem;inset-inline-end:.75rem;z-index:3">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="detail" id="dish-detail-body"></div>
+  </div>
+</dialog>
+
+<!-- ============================================ reservation confirmation -->
+<dialog class="dialog--centre" id="reservation-dialog" aria-labelledby="reservation-dialog-title">
+  <div class="dialog-panel" style="max-width:32rem;margin-inline:auto">
+    <div style="padding:2rem;text-align:center">
+      <span style="display:inline-grid;place-items:center;width:4rem;height:4rem;border-radius:999rem;background:var(--success-soft);color:var(--success);margin-bottom:1rem" aria-hidden="true">
+        <svg viewBox="0 0 24 24" style="width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round">
+          <path d="m5 12.5 4.5 4.5L19 7.5"/>
+        </svg>
+      </span>
+      <h2 class="dialog__title" id="reservation-dialog-title">Table requested</h2>
+      <p id="reservation-summary" style="font-weight:650;margin-block:.5rem"></p>
+      <p style="color:var(--text-muted);font-size:var(--step--1)">
+        Send the message below on WhatsApp and we will confirm within the hour.
+        We hold every table for 15 minutes past its time.
+      </p>
+      <div style="display:grid;gap:.6rem;margin-top:1.5rem">
+        <a class="btn btn--whatsapp btn--block" id="reservation-whatsapp"
+           href="https://wa.me/2347051870773" target="_blank" rel="noopener noreferrer">
+          Confirm on WhatsApp
+        </a>
+        <button type="button" class="btn btn--ghost btn--block" data-reservation-close>
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast-region" id="toast-region" role="status" aria-live="polite" aria-atomic="false"></div>
+
+<!-- =====================================================================
+     Dish illustrations.
+     Every plate on this site is hand-drawn SVG: no photography, no image
+     requests, no layout shift, and it recolours perfectly at any size.
+     ===================================================================== -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="plate-base" viewBox="0 0 120 120">
+      <ellipse cx="60" cy="104" rx="40" ry="6" fill="#3b1f14" opacity=".14"/>
+      <circle cx="60" cy="66" r="45" fill="#eddcc4"/>
+      <circle cx="60" cy="66" r="37" fill="#fffaf2"/>
+    </symbol>
+    <symbol id="bowl-base" viewBox="0 0 120 120">
+      <ellipse cx="60" cy="106" rx="38" ry="6" fill="#3b1f14" opacity=".14"/>
+      <path d="M16 58h88c0 26-19 44-44 44s-44-18-44-44z" fill="#e8d5ba"/>
+      <ellipse cx="60" cy="58" rx="44" ry="13" fill="#fffaf2"/>
+    </symbol>
+    <symbol id="glass-base" viewBox="0 0 120 120">
+      <ellipse cx="60" cy="110" rx="26" ry="5" fill="#3b1f14" opacity=".14"/>
+      <path d="M40 20h40l-5 84a8 8 0 0 1-8 7H53a8 8 0 0 1-8-7z" fill="#f4f8fa" opacity=".85"/>
+    </symbol>
+  </defs>
+
+  <!-- Rice & grains -->
+  <symbol id="dish-jollof" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M28 72c0-16 14-28 32-28s32 12 32 28c0 9-14 15-32 15S28 81 28 72z" fill="#cf4a1c"/>
+    <path d="M32 68c3-12 14-20 28-20s25 8 28 20c-9-6-47-6-56 0z" fill="#e86a2b"/>
+    <circle cx="45" cy="70" r="2.6" fill="#f7c46b"/>
+    <circle cx="56" cy="76" r="2.2" fill="#2f7a4f"/>
+    <circle cx="70" cy="69" r="2.4" fill="#f7c46b"/>
+    <circle cx="64" cy="61" r="2" fill="#8f2412"/>
+    <circle cx="51" cy="60" r="2" fill="#2f7a4f"/>
+    <circle cx="78" cy="76" r="2.2" fill="#8f2412"/>
+    <path d="M74 84c6-8 15-8 20-1-4 8-14 9-20 1z" fill="#f0a33c"/>
+    <ellipse cx="40" cy="86" rx="11" ry="7.5" fill="#fffdf8"/>
+    <circle cx="40" cy="86" r="4.2" fill="#f2b632"/>
+  </symbol>
+
+  <symbol id="dish-ofada" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M60 30a36 36 0 0 0 0 72z" fill="#f6ead2"/>
+    <path d="M60 30a36 36 0 0 1 0 72z" fill="#5c7f2c"/>
+    <g fill="#e0cfaa">
+      <ellipse cx="44" cy="52" rx="5" ry="2.4" transform="rotate(-20 44 52)"/>
+      <ellipse cx="36" cy="68" rx="5" ry="2.4" transform="rotate(15 36 68)"/>
+      <ellipse cx="46" cy="82" rx="5" ry="2.4" transform="rotate(-8 46 82)"/>
+      <ellipse cx="52" cy="64" rx="5" ry="2.4" transform="rotate(30 52 64)"/>
+    </g>
+    <g fill="#3f5c1c">
+      <circle cx="74" cy="52" r="4.5"/>
+      <circle cx="82" cy="70" r="5"/>
+      <circle cx="70" cy="82" r="4"/>
+    </g>
+    <circle cx="78" cy="60" r="3" fill="#c9a227"/>
+    <path d="M64 44c8-4 16-2 20 4" stroke="#8fae5a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M92 26c10 2 14 10 10 18-6-4-12-2-16-8 2-4 4-8 6-10z" fill="#3c6b2a"/>
+  </symbol>
+
+  <symbol id="dish-coconut-rice" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M28 72c0-16 14-28 32-28s32 12 32 28c0 9-14 15-32 15S28 81 28 72z" fill="#f3e6c8"/>
+    <path d="M32 68c3-12 14-20 28-20s25 8 28 20c-9-6-47-6-56 0z" fill="#fbf3de"/>
+    <g fill="#e06a2a">
+      <rect x="42" y="62" width="12" height="3.4" rx="1.7" transform="rotate(-18 42 62)"/>
+      <rect x="64" y="72" width="12" height="3.4" rx="1.7" transform="rotate(12 64 72)"/>
+    </g>
+    <g fill="#2f7a4f">
+      <rect x="54" y="58" width="11" height="3.4" rx="1.7" transform="rotate(28 54 58)"/>
+      <rect x="46" y="76" width="11" height="3.4" rx="1.7" transform="rotate(-8 46 76)"/>
+      <circle cx="74" cy="62" r="2.6"/>
+    </g>
+    <circle cx="60" cy="70" r="2.4" fill="#e0b23c"/>
+    <path d="M84 40a12 12 0 1 1 0 20 12 12 0 0 1 0-20z" fill="#f6efe2"/>
+    <path d="M84 44a8 8 0 1 1 0 12 8 8 0 0 1 0-12z" fill="#fff"/>
+    <path d="M84 40a12 12 0 0 0-9 4l3 3a8 8 0 0 1 6-3z" fill="#8a6a4b"/>
+  </symbol>
+
+  <!-- Swallow & soup -->
+  <symbol id="dish-egusi" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#b8901f"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#d3ae32"/>
+    <g fill="#2f7a4f">
+      <ellipse cx="44" cy="56" rx="8" ry="4" transform="rotate(-18 44 56)"/>
+      <ellipse cx="72" cy="60" rx="9" ry="4.5" transform="rotate(14 72 60)"/>
+      <ellipse cx="58" cy="66" rx="7" ry="3.5"/>
+    </g>
+    <circle cx="52" cy="60" r="3" fill="#f2e3b0"/>
+    <circle cx="66" cy="54" r="2.6" fill="#f2e3b0"/>
+    <circle cx="78" cy="52" r="2.4" fill="#f2e3b0"/>
+    <path d="M62 52c6-3 12-1 14 4-6 3-12 1-14-4z" fill="#7a4a30"/>
+    <ellipse cx="88" cy="74" rx="20" ry="18" fill="#fffdf6"/>
+    <ellipse cx="88" cy="70" rx="17" ry="14" fill="#fff"/>
+    <path d="M78 66c6-4 14-3 18 2" stroke="#e8ddc8" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="dish-abula" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#6a4a34"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#7d5a40"/>
+    <path d="M22 56a38 11 0 0 1 38-9v11z" fill="#4c8a3a"/>
+    <path d="M60 47a38 11 0 0 1 36 8l-36 3z" fill="#d9a637"/>
+    <ellipse cx="60" cy="72" rx="22" ry="17" fill="#4a3324"/>
+    <ellipse cx="60" cy="69" rx="19" ry="14" fill="#5c3f2c"/>
+    <path d="M48 64c8-4 18-3 24 3" stroke="#775441" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <circle cx="34" cy="60" r="3" fill="#6fbd8f"/>
+    <circle cx="86" cy="62" r="3" fill="#f2c46b"/>
+  </symbol>
+
+  <symbol id="dish-ogbono" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#2f4a22"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#3d6129"/>
+    <ellipse cx="46" cy="58" rx="10" ry="5" fill="#4f7a33"/>
+    <ellipse cx="74" cy="61" rx="9" ry="4.5" fill="#4f7a33"/>
+    <path d="M60 52c5-2 9 0 10 4" stroke="#8faa5f" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M84 50c4 10 2 20-4 26" stroke="#6d8f3e" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="54" cy="64" r="3.4" fill="#8a5a34"/>
+    <circle cx="68" cy="54" r="3" fill="#8a5a34"/>
+    <ellipse cx="26" cy="76" rx="18" ry="16" fill="#fdf6e6"/>
+    <ellipse cx="26" cy="73" rx="15" ry="12" fill="#fffdf6"/>
+  </symbol>
+
+  <symbol id="dish-afang" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#1f4020"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#2c5a2a"/>
+    <g fill="#3f7a38">
+      <ellipse cx="42" cy="56" rx="9" ry="4" transform="rotate(-20 42 56)"/>
+      <ellipse cx="62" cy="61" rx="10" ry="4.5" transform="rotate(10 62 61)"/>
+      <ellipse cx="78" cy="55" rx="8" ry="3.8" transform="rotate(-12 78 55)"/>
+      <ellipse cx="52" cy="66" rx="8" ry="3.6" transform="rotate(24 52 66)"/>
+    </g>
+    <circle cx="70" cy="52" r="3" fill="#c98a3a"/>
+    <circle cx="48" cy="50" r="2.6" fill="#c98a3a"/>
+    <path d="M58 48c6-2 12 0 14 5" stroke="#7fae5c" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="90" cy="74" rx="18" ry="16" fill="#fdf3e0"/>
+    <ellipse cx="90" cy="71" rx="15" ry="12" fill="#fffaf0"/>
+  </symbol>
+
+  <!-- Grills & peppered -->
+  <symbol id="dish-suya" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <g stroke="#c8a97a" stroke-width="3" stroke-linecap="round">
+      <path d="M26 54h68M26 70h68M26 86h68"/>
+    </g>
+    <g fill="#8a3b18">
+      <rect x="34" y="46" width="15" height="16" rx="4"/>
+      <rect x="53" y="46" width="15" height="16" rx="4"/>
+      <rect x="72" y="46" width="15" height="16" rx="4"/>
+      <rect x="34" y="62" width="15" height="16" rx="4"/>
+      <rect x="53" y="62" width="15" height="16" rx="4"/>
+      <rect x="72" y="62" width="15" height="16" rx="4"/>
+      <rect x="40" y="78" width="15" height="16" rx="4"/>
+      <rect x="60" y="78" width="15" height="16" rx="4"/>
+    </g>
+    <g fill="#b8501f" opacity=".9">
+      <rect x="36" y="48" width="11" height="5" rx="2.5"/>
+      <rect x="55" y="48" width="11" height="5" rx="2.5"/>
+      <rect x="74" y="48" width="11" height="5" rx="2.5"/>
+      <rect x="36" y="64" width="11" height="5" rx="2.5"/>
+      <rect x="55" y="64" width="11" height="5" rx="2.5"/>
+      <rect x="74" y="64" width="11" height="5" rx="2.5"/>
+      <rect x="42" y="80" width="11" height="5" rx="2.5"/>
+      <rect x="62" y="80" width="11" height="5" rx="2.5"/>
+    </g>
+    <g fill="#d8912b">
+      <circle cx="42" cy="57" r="1.6"/><circle cx="62" cy="55" r="1.6"/>
+      <circle cx="80" cy="58" r="1.6"/><circle cx="46" cy="72" r="1.6"/>
+      <circle cx="66" cy="74" r="1.6"/><circle cx="50" cy="88" r="1.6"/>
+    </g>
+    <path d="M88 84c6-2 10 2 10 8-6 2-10-2-10-8z" fill="#f0e3c8"/>
+  </symbol>
+
+  <symbol id="dish-asun" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#8c3213"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#a83f18"/>
+    <g fill="#5c3218">
+      <rect x="36" y="50" width="16" height="14" rx="4" transform="rotate(-10 36 50)"/>
+      <rect x="58" y="52" width="16" height="14" rx="4" transform="rotate(8 58 52)"/>
+      <rect x="46" y="66" width="16" height="14" rx="4" transform="rotate(-4 46 66)"/>
+      <rect x="68" y="64" width="15" height="13" rx="4" transform="rotate(16 68 64)"/>
+    </g>
+    <g fill="#3f2110" opacity=".7">
+      <rect x="39" y="53" width="11" height="3" rx="1.5" transform="rotate(-10 39 53)"/>
+      <rect x="61" y="55" width="11" height="3" rx="1.5" transform="rotate(8 61 55)"/>
+      <rect x="49" y="69" width="11" height="3" rx="1.5" transform="rotate(-4 49 69)"/>
+    </g>
+    <g fill="#e4572e">
+      <ellipse cx="34" cy="62" rx="6" ry="3" transform="rotate(-25 34 62)"/>
+      <ellipse cx="84" cy="58" rx="6" ry="3" transform="rotate(20 84 58)"/>
+      <ellipse cx="60" cy="78" rx="6" ry="3"/>
+    </g>
+    <circle cx="72" cy="52" r="3" fill="#f2c46b"/>
+    <circle cx="44" cy="76" r="2.6" fill="#f2c46b"/>
+  </symbol>
+
+  <symbol id="dish-snail" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M28 70c0-14 14-24 32-24s32 10 32 24c0 8-14 14-32 14s-32-6-32-14z" fill="#a33418"/>
+    <g fill="#5a3a22">
+      <path d="M44 62a12 12 0 1 1 0 .1z"/>
+      <path d="M76 66a11 11 0 1 1 0 .1z"/>
+      <path d="M60 78a9 9 0 1 1 0 .1z"/>
+    </g>
+    <g fill="none" stroke="#c8a066" stroke-width="2.2" stroke-linecap="round">
+      <path d="M44 62c0-4 4-6 7-4s2 6-2 7-8-1-8-5 5-8 10-6"/>
+      <path d="M76 66c0-3.5 3.5-5.4 6.2-3.6s1.8 5.4-1.8 6.3-7-.9-7-4.5 4.4-7.2 9-5.4"/>
+      <path d="M60 78c0-3 3-4.5 5.2-3s1.5 4.5-1.5 5.2-5.8-.7-5.8-3.7 3.6-6 7.4-4.4"/>
+    </g>
+    <g fill="#e4572e">
+      <ellipse cx="36" cy="76" rx="6" ry="3" transform="rotate(-20 36 76)"/>
+      <ellipse cx="86" cy="56" rx="6" ry="3" transform="rotate(24 86 56)"/>
+    </g>
+    <circle cx="66" cy="54" r="2.8" fill="#f2c46b"/>
+    <circle cx="52" cy="80" r="2.4" fill="#f2c46b"/>
+  </symbol>
+
+  <symbol id="dish-peppersoup" viewBox="0 0 120 120">
+    <use href="#bowl-base"/>
+    <path d="M20 58h80c0 22-16 38-40 38S20 80 20 58z" fill="#9c3a12"/>
+    <ellipse cx="60" cy="58" rx="40" ry="11" fill="#c4581f"/>
+    <path d="M34 58c10-8 26-10 38-4 8 4 10 10 6 14-8 8-30 8-40 0-4-3-6-7-4-10z" fill="#6f6a5a"/>
+    <path d="M40 56c8-5 20-6 28-2" stroke="#8d8878" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <circle cx="44" cy="58" r="2.6" fill="#2b2b28"/>
+    <path d="M76 50c8-6 16-4 18 4-6 6-14 4-18-4z" fill="#7d7767"/>
+    <g fill="#2f7a4f">
+      <ellipse cx="34" cy="66" rx="7" ry="3.4" transform="rotate(-18 34 66)"/>
+      <ellipse cx="82" cy="66" rx="7" ry="3.4" transform="rotate(18 82 66)"/>
+      <ellipse cx="58" cy="76" rx="7" ry="3.4"/>
+    </g>
+    <g fill="#e4572e">
+      <circle cx="50" cy="72" r="2.6"/><circle cx="70" cy="70" r="2.6"/>
+      <circle cx="60" cy="64" r="2.2"/>
+    </g>
+    <path d="M46 36c6-6-3-10 3-17M60 32c6-7-3-11 3-18M74 36c6-6-3-10 3-17"
+          fill="none" stroke="#cdb391" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+  </symbol>
+
+  <!-- Small chops -->
+  <symbol id="dish-moimoi" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <path d="M22 78c8-22 24-34 38-34s30 12 38 34c-24 8-52 8-76 0z" fill="#2f7a4f"/>
+    <path d="M60 44c14 0 30 12 38 34-13 4-27 6-38 6z" fill="#276641"/>
+    <path d="M32 74c6-16 16-24 28-24s22 8 28 24c-18 6-38 6-56 0z" fill="#e08a2c"/>
+    <path d="M38 70c5-11 13-16 22-16s17 5 22 16c-14 4-30 4-44 0z" fill="#f0a33c"/>
+    <circle cx="52" cy="66" r="3" fill="#c4501c"/>
+    <circle cx="68" cy="63" r="2.6" fill="#c4501c"/>
+    <ellipse cx="60" cy="70" rx="7" ry="5" fill="#fffdf6"/>
+    <circle cx="60" cy="70" r="2.8" fill="#f2c46b"/>
+  </symbol>
+
+  <symbol id="dish-puffpuff" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <circle cx="45" cy="74" r="17" fill="#c47b21"/>
+    <circle cx="45" cy="71" r="16" fill="#e2a03c"/>
+    <circle cx="76" cy="76" r="15" fill="#c47b21"/>
+    <circle cx="76" cy="73" r="14" fill="#e2a03c"/>
+    <circle cx="60" cy="54" r="16" fill="#c47b21"/>
+    <circle cx="60" cy="51" r="15" fill="#eeb254"/>
+    <g fill="#fff8e8" opacity=".85">
+      <circle cx="54" cy="45" r="1.7"/><circle cx="66" cy="48" r="1.5"/>
+      <circle cx="40" cy="66" r="1.6"/><circle cx="50" cy="76" r="1.4"/>
+      <circle cx="80" cy="70" r="1.5"/><circle cx="72" cy="80" r="1.3"/>
+      <circle cx="60" cy="58" r="1.4"/>
+    </g>
+    <path d="M52 44c4-3 10-3 14 1" stroke="#c98a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="dish-dodo" viewBox="0 0 120 120">
+    <use href="#plate-base"/>
+    <g>
+      <ellipse cx="44" cy="76" rx="17" ry="11" fill="#c98524" transform="rotate(-18 44 76)"/>
+      <ellipse cx="44" cy="74" rx="15" ry="9" fill="#f0b23c" transform="rotate(-18 44 74)"/>
+      <ellipse cx="74" cy="78" rx="17" ry="11" fill="#c98524" transform="rotate(14 74 78)"/>
+      <ellipse cx="74" cy="76" rx="15" ry="9" fill="#f0b23c" transform="rotate(14 74 76)"/>
+      <ellipse cx="58" cy="58" rx="18" ry="11" fill="#c98524" transform="rotate(-6 58 58)"/>
+      <ellipse cx="58" cy="56" rx="16" ry="9" fill="#f7c357" transform="rotate(-6 58 56)"/>
+      <ellipse cx="82" cy="56" rx="15" ry="10" fill="#c98524" transform="rotate(26 82 56)"/>
+      <ellipse cx="82" cy="54" rx="13" ry="8" fill="#f0b23c" transform="rotate(26 82 54)"/>
+    </g>
+    <g fill="#a8601a" opacity=".55">
+      <ellipse cx="44" cy="74" rx="4" ry="2.4" transform="rotate(-18 44 74)"/>
+      <ellipse cx="74" cy="76" rx="4" ry="2.4" transform="rotate(14 74 76)"/>
+      <ellipse cx="58" cy="56" rx="4.4" ry="2.6" transform="rotate(-6 58 56)"/>
+    </g>
+  </symbol>
+
+  <!-- Drinks -->
+  <symbol id="dish-chapman" viewBox="0 0 120 120">
+    <use href="#glass-base"/>
+    <path d="M44 40h32l-4 64a6 6 0 0 1-6 5.5H54a6 6 0 0 1-6-5.5z" fill="#c92f3c"/>
+    <path d="M44 40h32l-1 16H45z" fill="#e04a52" opacity=".8"/>
+    <g fill="#fff" opacity=".35">
+      <rect x="50" y="48" width="7" height="10" rx="2" transform="rotate(12 50 48)"/>
+      <rect x="63" y="62" width="7" height="10" rx="2" transform="rotate(-14 63 62)"/>
+      <rect x="53" y="76" width="7" height="10" rx="2" transform="rotate(8 53 76)"/>
+    </g>
+    <circle cx="66" cy="54" r="8" fill="#8ac34a" opacity=".9"/>
+    <circle cx="66" cy="54" r="5" fill="#c6e39a" opacity=".9"/>
+    <path d="M78 14 66 44" stroke="#f2c46b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M38 26c8-4 14 0 14 8-8 3-14-1-14-8z" fill="#e4572e"/>
+    <path d="M52 34v8" stroke="#2f7a4f" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="dish-zobo" viewBox="0 0 120 120">
+    <use href="#glass-base"/>
+    <path d="M44 40h32l-4 64a6 6 0 0 1-6 5.5H54a6 6 0 0 1-6-5.5z" fill="#7d1230"/>
+    <path d="M44 40h32l-1 14H45z" fill="#a31c3f" opacity=".9"/>
+    <g fill="#fff" opacity=".18">
+      <circle cx="54" cy="62" r="3"/><circle cx="66" cy="74" r="2.4"/>
+      <circle cx="58" cy="88" r="2"/>
+    </g>
+    <path d="M60 20c8 0 12 6 10 12-6-2-8-6-10-12z" fill="#c0324f"/>
+    <path d="M60 20c-8 0-12 6-10 12 6-2 8-6 10-12z" fill="#a3223c"/>
+    <path d="M50 32c-6 4-6 10 0 12 4-4 4-8 0-12z" fill="#c0324f"/>
+    <path d="M70 32c6 4 6 10 0 12-4-4-4-8 0-12z" fill="#a3223c"/>
+    <circle cx="60" cy="33" r="4" fill="#f2c46b"/>
+    <path d="M30 84c8-6 14-2 14 6-8 4-14 0-14-6z" fill="#2f7a4f"/>
+  </symbol>
+
+  <symbol id="dish-kunu" viewBox="0 0 120 120">
+    <use href="#glass-base"/>
+    <path d="M44 40h32l-4 64a6 6 0 0 1-6 5.5H54a6 6 0 0 1-6-5.5z" fill="#e6d5b8"/>
+    <path d="M44 40h32l-1 14H45z" fill="#f3e7d0"/>
+    <g fill="#fff" opacity=".5">
+      <circle cx="55" cy="60" r="2.6"/><circle cx="66" cy="70" r="2.2"/>
+      <circle cx="57" cy="82" r="2"/><circle cx="64" cy="92" r="1.8"/>
+    </g>
+    <ellipse cx="60" cy="40" rx="16" ry="5" fill="#fdf8ef"/>
+    <path d="M52 26a7 7 0 1 1 0 .1z" fill="#a8763f"/>
+    <path d="M68 30a6 6 0 1 1 0 .1z" fill="#c08d4f"/>
+    <path d="M60 20a5 5 0 1 1 0 .1z" fill="#8f6231"/>
+    <path d="M34 82c8-4 12 0 12 6-8 3-12-1-12-6z" fill="#d8a55e"/>
+  </symbol>
+</svg>
