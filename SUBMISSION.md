@@ -1,8 +1,8 @@
 # DEV.to submission draft
 
 Copy the body below into the DEV editor. Tags: `devchallenge`, `frontendchallenge`,
-`webdev`, `javascript`. Replace `YOUR-CLOUD-RUN-URL` with the Service URL that
-`gcloud run deploy` prints — see [DEPLOY.md](DEPLOY.md).
+`webdev`, `javascript`. Replace `YOUR-PEN-URL` with your saved Pen's URL — see
+[codepen/README.md](codepen/README.md) for how to create it.
 
 ---
 
@@ -46,9 +46,16 @@ What it does:
 
 ## Demo
 
-{% embed YOUR-CLOUD-RUN-URL %}
+{% codepen YOUR-PEN-URL %}
 
 **Source:** <https://github.com/benjaminsqlserver/food-front-end> (MIT licensed)
+
+The Pen is not a flattened copy. CodePen gives you one JS pane, and this is 17
+modules wired by 40 relative imports — so instead of stripping every
+`import`/`export` and hand-ordering the dependency graph, the Pen loads the real
+files from the repository over jsDelivr, pinned to a git tag. `main.js` resolves
+its own relative imports against the CDN exactly as it does when served locally.
+Nothing is bundled, minified or rewritten.
 
 ## Journey
 
