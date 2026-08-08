@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Iya Bashirat Restaurant">
+  <rect width="512" height="512" rx="112" fill="#a8391f"/>
+  <path d="M96 272h320c0 88-72 160-160 160s-160-72-160-160z" fill="#f2c46b"/>
+  <path d="M80 262h352" stroke="#fff9f1" stroke-width="26" stroke-linecap="round"/>
+  <path d="M200 96c40 30 40 62 0 92M296 120c30 22 30 46 0 68"
+        stroke="#f2c46b" stroke-width="24" stroke-linecap="round" fill="none"/>
+</svg>

@@ -1,0 +1,451 @@
+/* ==========================================================================
+   Iya Bashirat Restaurant — foundations
+   Design tokens, reset, typography and utilities.
+   Palette is drawn from a Lagos kitchen: palm oil, clay pot, jollof smoke,
+   ugu leaf and the indigo of adire cloth.
+   ========================================================================== */
+
+@layer reset, tokens, base, utilities;
+
+/* ------------------------------------------------------------------ reset */
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100svh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    overflow-wrap: break-word;
+  }
+
+  ul[class],
+  ol[class] {
+    list-style: none;
+    padding: 0;
+  }
+
+  :target {
+    scroll-margin-top: 6.5rem;
+  }
+}
+
+/* ----------------------------------------------------------------- tokens */
+@layer tokens {
+  :root {
+    /* Brand ramp — clay and palm oil. */
+    --clay-900: #3b1f14;
+    --clay-700: #7a2e18;
+    --clay-600: #a8391f;
+    --clay-500: #c0432a;
+    --ember-500: #e4572e;
+    --ember-300: #f08a5d;
+    --gold-500: #d8912b;
+    --gold-300: #f2c46b;
+    --leaf-700: #1f5a3d;
+    --leaf-500: #2f7a4f;
+    --leaf-300: #6fbd8f;
+
+    /* Neutral ramp — cream, sand and cocoa. */
+    --cream-50: #fff9f1;
+    --cream-100: #fdf2e4;
+    --sand-200: #f2e2cd;
+    --sand-300: #e3cdb0;
+    --cocoa-600: #6a5341;
+    --cocoa-800: #3a2b20;
+    --cocoa-900: #241a13;
+
+    /* Semantic tokens — light theme is the default and is defined here in
+       full, so no colour has its only definition inside a media query. */
+    --bg: var(--cream-50);
+    --bg-alt: var(--cream-100);
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --surface-sunken: var(--sand-200);
+    --text: var(--cocoa-900);
+    --text-muted: var(--cocoa-600);
+    --text-inverse: var(--cream-50);
+    --border: #e6d3ba;
+    --border-strong: #cdb391;
+
+    --brand: var(--clay-600);
+    --brand-hover: var(--clay-700);
+    --brand-soft: #fbe6dd;
+    --brand-text: #ffffff;
+    --accent: var(--gold-500);
+    --accent-soft: #fdf0d5;
+    --success: var(--leaf-700);
+    --success-soft: #e3f3e9;
+    --warning: #9a5b06;
+    --warning-soft: #fdeed5;
+    --danger: #b3261e;
+
+    --focus: #0b5cd5;
+    --focus-ring: 0 0 0 3px var(--bg), 0 0 0 6px var(--focus);
+
+    /* Elevation. Warm shadows, because a neutral grey shadow on cream looks
+       like dirt. */
+    --shadow-sm: 0 1px 2px rgb(59 31 20 / 8%), 0 2px 6px rgb(59 31 20 / 6%);
+    --shadow-md: 0 4px 10px rgb(59 31 20 / 10%), 0 12px 28px rgb(59 31 20 / 10%);
+    --shadow-lg: 0 10px 24px rgb(59 31 20 / 12%), 0 30px 60px rgb(59 31 20 / 14%);
+
+    /* Type. A system stack keeps the page dependency-free and instant. */
+    --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+      Georgia, ui-serif, serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+      Arial, sans-serif;
+
+    --step--1: clamp(0.82rem, 0.79rem + 0.15vw, 0.9rem);
+    --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+    --step-1: clamp(1.2rem, 1.12rem + 0.4vw, 1.45rem);
+    --step-2: clamp(1.45rem, 1.3rem + 0.75vw, 1.95rem);
+    --step-3: clamp(1.75rem, 1.5rem + 1.25vw, 2.6rem);
+    --step-4: clamp(2.1rem, 1.65rem + 2.2vw, 3.6rem);
+    --step-5: clamp(2.5rem, 1.7rem + 3.6vw, 4.8rem);
+
+    /* Space and shape. */
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1.25rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: clamp(3.5rem, 2rem + 6vw, 7rem);
+
+    --radius-sm: 0.5rem;
+    --radius-md: 0.9rem;
+    --radius-lg: 1.5rem;
+    --radius-pill: 999rem;
+
+    --content: 76rem;
+    --content-narrow: 46rem;
+    --header-height: 4.5rem;
+
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --duration: 260ms;
+
+    color-scheme: light;
+  }
+
+  /* Dark palette: applied when the OS asks for it and the visitor has not
+     chosen otherwise. Only the semantic layer is redefined. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14100d;
+      --bg-alt: #1a1511;
+      --surface: #211a15;
+      --surface-raised: #2a211a;
+      --surface-sunken: #191410;
+      --text: #f7ece0;
+      --text-muted: #c2ab95;
+      --text-inverse: #1a1511;
+      --border: #3a2e25;
+      --border-strong: #55432f;
+
+      --brand: var(--ember-500);
+      --brand-hover: var(--ember-300);
+      --brand-soft: #3a2018;
+      --brand-text: #14100d;
+      --accent: var(--gold-300);
+      --accent-soft: #33260f;
+      --success: var(--leaf-300);
+      --success-soft: #16281d;
+      --warning: #f0b75a;
+      --warning-soft: #33260f;
+      --danger: #ff8a7a;
+
+      --focus: #8ab8ff;
+
+      --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%), 0 2px 6px rgb(0 0 0 / 30%);
+      --shadow-md: 0 4px 10px rgb(0 0 0 / 45%), 0 12px 28px rgb(0 0 0 / 40%);
+      --shadow-lg: 0 10px 24px rgb(0 0 0 / 50%), 0 30px 60px rgb(0 0 0 / 45%);
+
+      color-scheme: dark;
+    }
+  }
+
+  /* An explicit choice wins over the OS in both directions. */
+  :root[data-theme="dark"] {
+    --bg: #14100d;
+    --bg-alt: #1a1511;
+    --surface: #211a15;
+    --surface-raised: #2a211a;
+    --surface-sunken: #191410;
+    --text: #f7ece0;
+    --text-muted: #c2ab95;
+    --text-inverse: #1a1511;
+    --border: #3a2e25;
+    --border-strong: #55432f;
+
+    --brand: var(--ember-500);
+    --brand-hover: var(--ember-300);
+    --brand-soft: #3a2018;
+    --brand-text: #14100d;
+    --accent: var(--gold-300);
+    --accent-soft: #33260f;
+    --success: var(--leaf-300);
+    --success-soft: #16281d;
+    --warning: #f0b75a;
+    --warning-soft: #33260f;
+    --danger: #ff8a7a;
+
+    --focus: #8ab8ff;
+
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%), 0 2px 6px rgb(0 0 0 / 30%);
+    --shadow-md: 0 4px 10px rgb(0 0 0 / 45%), 0 12px 28px rgb(0 0 0 / 40%);
+    --shadow-lg: 0 10px 24px rgb(0 0 0 / 50%), 0 30px 60px rgb(0 0 0 / 45%);
+
+    color-scheme: dark;
+  }
+
+  /* Honour Windows High Contrast / forced-colours by stepping out of the way. */
+  @media (forced-colors: active) {
+    :root {
+      --shadow-sm: none;
+      --shadow-md: none;
+      --shadow-lg: none;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------- base */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    /* Adire-inspired ground: a faint indigo-resist speckle that survives both
+       themes because it is built from the text colour at low alpha. */
+    background-image:
+      radial-gradient(circle at 15% 12%, color-mix(in srgb, var(--accent) 9%, transparent) 0, transparent 38%),
+      radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--brand) 8%, transparent) 0, transparent 32%);
+    background-attachment: fixed;
+  }
+
+  body.has-open-drawer {
+    overflow: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--step-5);
+  }
+  h2 {
+    font-size: var(--step-4);
+  }
+  h3 {
+    font-size: var(--step-2);
+  }
+  h4 {
+    font-size: var(--step-1);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: var(--brand);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.2em;
+  }
+
+  a:hover {
+    color: var(--brand-hover);
+  }
+
+  /* One focus style, everywhere, and never removed. */
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 0.25rem;
+  }
+
+  /* Belt and braces for browsers that still map :focus to mouse clicks. */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background: var(--brand);
+    color: var(--brand-text);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Global motion opt-out. Transitions collapse to instant rather than being
+     removed, so state changes still land. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* -------------------------------------------------------------- utilities */
+@layer utilities {
+  .visually-hidden:not(:focus):not(:active) {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .shell {
+    width: min(100% - 2.5rem, var(--content));
+    margin-inline: auto;
+  }
+
+  .shell--narrow {
+    width: min(100% - 2.5rem, var(--content-narrow));
+  }
+
+  .section {
+    padding-block: var(--space-2xl);
+    scroll-margin-top: var(--header-height);
+  }
+
+  .section:focus {
+    outline: none;
+  }
+
+  .section--tint {
+    background: var(--bg-alt);
+    border-block: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 2px;
+    background: currentColor;
+    border-radius: var(--radius-pill);
+  }
+
+  .lede {
+    max-width: 60ch;
+    font-size: var(--step-1);
+    color: var(--text-muted);
+  }
+
+  .section-head {
+    max-width: 62ch;
+    margin-bottom: var(--space-xl);
+  }
+
+  .stack > * + * {
+    margin-top: var(--space-md);
+  }
+
+  /* Reveal-on-scroll. The un-revealed state is only applied when JS is running,
+     so the content is never trapped invisible. */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition:
+      opacity 700ms var(--ease-out),
+      transform 700ms var(--ease-out);
+    transition-delay: calc(var(--reveal-delay, 0) * 90ms);
+  }
+
+  .js [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
