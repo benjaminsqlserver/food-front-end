@@ -1,8 +1,8 @@
 # DEV.to submission draft
 
 Copy the body below into the DEV editor. Tags: `devchallenge`, `frontendchallenge`,
-`webdev`, `javascript`. Replace `YOUR-PEN-URL` with your saved Pen's URL — see
-[codepen/README.md](codepen/README.md) for how to create it.
+`webdev`, `javascript`. The Pen is already published and linked below — nothing
+left to fill in.
 
 ---
 
@@ -46,9 +46,13 @@ What it does:
 
 ## Demo
 
-{% codepen YOUR-PEN-URL %}
+{% codepen https://codepen.io/Benjamin-Fadina/pen/gbgEGyy %}
 
 **Source:** <https://github.com/benjaminsqlserver/food-front-end> (MIT licensed)
+
+> The **Order on WhatsApp** buttons open a new tab, which CodePen's sandboxed
+> preview sometimes blocks. Open the Pen in its own tab to try the full
+> hand-off — the order message is composed either way.
 
 The Pen is not a flattened copy. CodePen gives you one JS pane, and this is 17
 modules wired by 40 relative imports — so instead of stripping every

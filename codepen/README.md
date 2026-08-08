@@ -1,5 +1,8 @@
 # Publishing this to CodePen
 
+**Published:** <https://codepen.io/Benjamin-Fadina/pen/gbgEGyy>
+
+
 CodePen gives you one HTML pane, one CSS pane and one JS pane. This project is
 17 JavaScript modules wired by 40 relative imports plus three cascade-layered
 stylesheets, so pasting it in would normally mean flattening everything into a
