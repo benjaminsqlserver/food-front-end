@@ -68,6 +68,27 @@ the skip link and the JSON-LD.
 
 ---
 
+## Copy it as UTF-8
+
+The page is full of Yoruba diacritics (`Ẹ káàbọ̀`, `Iyán`, `Mọ́ínmọ́ín`) and the
+Naira sign `₦`. Copy the file with a tool that respects UTF-8, or they arrive as
+mojibake — `Ẹ` becomes `áº¸`, `₦` becomes `â‚¦`.
+
+Safe ways to copy:
+
+- GitHub's **Copy raw file** button on `codepen/html-pane.html`.
+- Any editor set to UTF-8 (VS Code, Notepad on Windows 10+).
+- PowerShell, **with the encoding stated explicitly**:
+
+  ```powershell
+  [System.IO.File]::ReadAllText("$PWD\codepen\html-pane.html",
+    [System.Text.Encoding]::UTF8) | Set-Clipboard
+  ```
+
+  Plain `Get-Content -Raw | Set-Clipboard` is **not** safe in Windows
+  PowerShell 5.1: it falls back to the system ANSI codepage for files without a
+  byte-order mark, and silently mangles every accented character.
+
 ## Troubleshooting
 
 **The menu and guest book are empty.** The modules did not load. Open the
@@ -83,3 +104,7 @@ of the HTML pane did not resolve. Same cause, same check.
 
 **A brand-new tag 404s for a minute.** jsDelivr fetches a tag the first time it
 is asked for. Load the raw URL once in a browser tab, then retry the Pen.
+
+**Accented text shows as `áº¸` or `â‚¦`.** The paste was decoded as Windows-1252
+instead of UTF-8. Nothing is wrong with the repository — re-copy using one of
+the methods above and paste again over the whole pane.
